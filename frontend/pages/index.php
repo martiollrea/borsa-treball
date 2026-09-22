@@ -5,8 +5,8 @@
 </head>
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<h1>Pagina principal</h1>
+<p>Aqui va el content de la pagina princiapl</p>
 
 </body>
 </html>
