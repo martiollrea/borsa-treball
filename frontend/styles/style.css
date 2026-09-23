@@ -1,0 +1,120 @@
+/* ==========================================================================
+   1. VARIABLES Y PALETA DE COLORES (CYAN)
+   ========================================================================== */
+:root {
+  --cyan-primary: #0891b2;       /* Cyan vibrante principal */
+  --cyan-primary-hover: #0e7490; /* Cyan oscuro para animación hover */
+  --cyan-secondary: #e0f2fe;     /* Cyan muy suave para el botón secundario */
+  --cyan-secondary-hover: #bae6fd;
+  --cyan-border: #06b6d4;        /* Línea de acento Cyan */
+  
+  --text-dark: #0f172a;          /* Color de texto principal */
+  --bg-body: #f8fafc;            /* Fondo suave para toda la web */
+  --bg-header: #ffffff;          /* Fondo blanco para el header */
+  --border-light: #e2e8f0;
+  
+  --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Restablecimiento básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-body);
+  color: var(--text-dark);
+}
+
+/* ==========================================================================
+   2. ESTILOS DEL HEADER (Reutilizable para todas las páginas)
+   ========================================================================== */
+.header-index {
+  background-color: var(--bg-header);
+  display: flex;
+  justify-content: space-between; /* Separa el título a la izquierda y botones a la derecha */
+  align-items: center;            /* Centra verticalmente los elementos */
+  padding: 1.25rem 3rem;          /* Espaciado interno */
+  border-bottom: 3px solid var(--cyan-border); /* Línea decorativa Cyan */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.header-index h1 {
+  font-size: 1.75rem;
+  color: var(--cyan-primary);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Contenedor de botones alineados HORIZONTALMENTE */
+.botons-inici {
+  display: flex;
+  flex-direction: row;            /* Coloca los botones uno al lado del otro */
+  gap: 0.75rem;                   /* Separación entre botones */
+  align-items: center;
+}
+
+/* ==========================================================================
+   3. ESTILOS DE BOTONES (Estándar para toda la web)
+   ========================================================================== */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.3rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: 8px;             /* Esquinas redondeadas */
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+/* Efecto al hacer clic */
+.button:active {
+  transform: scale(0.97);
+}
+
+/* Primer botón (Registrar): Botón Principal Cyan */
+.botons-inici .button:first-child,
+.button.primary {
+  background-color: var(--cyan-primary);
+  color: #ffffff;
+}
+
+.botons-inici .button:first-child:hover,
+.button.primary:hover {
+  background-color: var(--cyan-primary-hover);
+}
+
+/* Segundo botón (Iniciar Sessió): Botón Secundario Cyan suave */
+.botons-inici .button:last-child,
+.button.secondary {
+  background-color: var(--cyan-secondary);
+  color: #0369a1;
+}
+
+.botons-inici .button:last-child:hover,
+.button.secondary:hover {
+  background-color: var(--cyan-secondary-hover);
+}
+
+/* ==========================================================================
+   4. ESTILOS PARA EL CONTENIDO
+   ========================================================================== */
+.contingut-index {
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  padding: 0 2rem;
+}
+
+.contingut-index h2 {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
