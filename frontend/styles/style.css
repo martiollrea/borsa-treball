@@ -1,22 +1,36 @@
 /* ==========================================================================
-   1. VARIABLES Y PALETA DE COLORES (CYAN)
+   1. VARIABLES I PALETA DE COLORS (CYAN)
    ========================================================================== */
 :root {
-  --cyan-primary: #0891b2;       /* Cyan vibrante principal */
-  --cyan-primary-hover: #0e7490; /* Cyan oscuro para animación hover */
-  --cyan-secondary: #e0f2fe;     /* Cyan muy suave para el botón secundario */
+  --cyan-primary: #0891b2;       /* Cyan vibrant principal */
+  --cyan-primary-hover: #0e7490; /* Cyan fosc per a animació hover */
+  --cyan-secondary: #e0f2fe;     /* Cyan molt suau per al botó secundari */
   --cyan-secondary-hover: #bae6fd;
-  --cyan-border: #06b6d4;        /* Línea de acento Cyan */
+  --cyan-border: #06b6d4;        /* Línia d'accent Cyan */
   
-  --text-dark: #0f172a;          /* Color de texto principal */
-  --bg-body: #f8fafc;            /* Fondo suave para toda la web */
-  --bg-header: #ffffff;          /* Fondo blanco para el header */
+  --text-dark: #0f172a;          /* Color de text principal */
+  --bg-body: #f8fafc;            /* Fons suau per a tota la web */
+  --bg-header: #ffffff;          /* Fons blanc per al header */
   --border-light: #e2e8f0;
   
   --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  /* Variables específiques per als formularis */
+  --bg-card: #ffffff;
+  --border-focus: #0891b2;        /* Cyan principal per al focus */
+  --shadow-focus: rgba(8, 145, 178, 0.2); /* Resplendor suau en seleccionar camps */
+  
+  --text-muted: #64748b;          /* Text secundari i indicadors */
+  --bg-input: #ffffff;
+  --bg-input-disabled: #f1f5f9;
+  
+  /* Feedback i Validacions */
+  --error-color: #ef4444;
+  --error-bg: #fef2f2;
+  --success-color: #10b981;
 }
 
-/* Restablecimiento básico */
+/* Restabliment bàsic */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -30,15 +44,15 @@ body {
 }
 
 /* ==========================================================================
-   2. ESTILOS DEL HEADER (Reutilizable para todas las páginas)
+   2. ESTILS DEL HEADER (Reutilitzable per a totes les pàgines)
    ========================================================================== */
 .header-index {
   background-color: var(--bg-header);
   display: flex;
-  justify-content: space-between; /* Separa el título a la izquierda y botones a la derecha */
-  align-items: center;            /* Centra verticalmente los elementos */
-  padding: 1.25rem 3rem;          /* Espaciado interno */
-  border-bottom: 3px solid var(--cyan-border); /* Línea decorativa Cyan */
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 3rem;
+  border-bottom: 3px solid var(--cyan-border);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
@@ -49,16 +63,15 @@ body {
   letter-spacing: -0.5px;
 }
 
-/* Contenedor de botones alineados HORIZONTALMENTE */
 .botons-inici {
   display: flex;
-  flex-direction: row;            /* Coloca los botones uno al lado del otro */
-  gap: 0.75rem;                   /* Separación entre botones */
+  flex-direction: row;
+  gap: 0.75rem;
   align-items: center;
 }
 
 /* ==========================================================================
-   3. ESTILOS DE BOTONES (Estándar para toda la web)
+   3. ESTILS DE BOTONS (Estàndard per a tota la web)
    ========================================================================== */
 .button {
   display: inline-flex;
@@ -68,19 +81,18 @@ body {
   font-size: 0.95rem;
   font-weight: 600;
   font-family: inherit;
-  border-radius: 8px;             /* Esquinas redondeadas */
+  border-radius: 8px;
   border: 1px solid transparent;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
 }
 
-/* Efecto al hacer clic */
 .button:active {
   transform: scale(0.97);
 }
 
-/* Primer botón (Registrar): Botón Principal Cyan */
+/* Botó Principal Cyan */
 .botons-inici .button:first-child,
 .button.primary {
   background-color: var(--cyan-primary);
@@ -92,7 +104,7 @@ body {
   background-color: var(--cyan-primary-hover);
 }
 
-/* Segundo botón (Iniciar Sessió): Botón Secundario Cyan suave */
+/* Botó Secundari Cyan suau */
 .botons-inici .button:last-child,
 .button.secondary {
   background-color: var(--cyan-secondary);
@@ -105,18 +117,233 @@ body {
 }
 
 /* ==========================================================================
-   4. ESTILOS PARA EL CONTENIDO
+   4. ESTILS PER AL CONTINGUT GENERAL
    ========================================================================== */
 .contingut-index {
   max-width: 1200px;
   margin: 2.5rem auto;
   padding: 0 2rem;
-  border: 2px solid #0e7490;
-  border-radius: 20px;
 }
 
 .contingut-index h2 {
   font-size: 1.5rem;
   color: var(--text-dark);
   margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   5. ESTILS DE FORMULARI (Disseny net i modern)
+   ========================================================================== */
+
+/* Targeta / Contenidor principal del formulari */
+.form-container {
+  background-color: var(--bg-card);
+  max-width: 650px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  border-radius: 16px;
+  /* Vora del contenidor principal visible constantment */
+  border: 2px solid var(--cyan-border);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+}
+
+/* Capçalera del formulari */
+.form-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-header h2 {
+  font-size: 1.75rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.form-header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Estructura del formulari */
+.custom-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Grup de Camp + Etiqueta (Input + Label) */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+/* Fila per posar diversos camps junts (ex: Nom i Cognoms) */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Etiquetes (Labels) */
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.form-group label .required {
+  color: var(--error-color);
+  margin-left: 2px;
+}
+
+/* Estils comuns per a Inputs, Selects i Textareas */
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  background-color: var(--bg-input);
+  
+  /* VORA PERMANENT: Es manté visible en tot moment */
+  border: 2px solid var(--cyan-border);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.form-control::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* Estats Hover i Focus */
+.form-control:hover {
+  border-color: var(--cyan-primary-hover);
+}
+
+.form-control:focus {
+  border-color: var(--cyan-primary-hover);
+  box-shadow: 0 0 0 4px var(--shadow-focus);
+}
+
+/* Textarea específica */
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Camp inhabilitat */
+.form-control:disabled {
+  background-color: var(--bg-input-disabled);
+  border-color: var(--border-light);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Caselles de selecció (Checkbox & Radio) */
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  user-select: none;
+  margin-top: 0.25rem;
+}
+
+.form-check input[type="checkbox"],
+.form-check input[type="radio"] {
+  appearance: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 1.5px solid var(--cyan-border);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: all 0.2s ease;
+}
+
+.form-check input[type="radio"] {
+  border-radius: 50%;
+}
+
+.form-check input[type="checkbox"]:checked,
+.form-check input[type="radio"]:checked {
+  background-color: var(--cyan-primary);
+  border-color: var(--cyan-primary);
+}
+
+.form-check input[type="checkbox"]:checked::before {
+  content: "✓";
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.form-check input[type="radio"]:checked::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.form-check label {
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* Missatges d'ajuda i d'error */
+.help-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.error-text {
+  font-size: 0.8rem;
+  color: var(--error-color);
+  font-weight: 500;
+}
+
+/* Estat de camp amb error */
+.form-group.has-error .form-control {
+  border-color: var(--error-color);
+  background-color: var(--error-bg);
+}
+
+.form-group.has-error .form-control:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
+}
+
+/* Botons d'acció del formulari */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.form-actions .button {
+  min-width: 120px;
+}
+
+/* Adaptació per a mòbils */
+@media (max-width: 640px) {
+  .form-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions .button {
+    width: 100%;
+  }
 }

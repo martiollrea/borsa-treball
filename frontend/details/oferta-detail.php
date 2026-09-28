@@ -5,10 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oferta Detailed</title>
-  <link rel="stylesheet" href="oferta-detail.css">
+  <link rel="stylesheet" href="../styles/style.css">
 </head>
 
 <body>
+  <div class="header-index">
+    <h1>Borsa Treball</h1>
+    <div class="botons-inici">
+      <button class="button">Registrar</button>
+      <button class="button">Iniciar Sessió</button>
+    </div>
+  </div>
+  <a><button>Tornar</button></a>
 
   <div class="card ant-card-hoverable">
     <div class="card-head">
@@ -22,9 +30,9 @@
         <span class="tag tag-default">Data oferta</span>
       </div>
 
-      <div class="ant-card-actions">
-        <button class="btn btn-default">Desar</button>
-        <button class="btn btn-primary">Inscriure's</button>
+      <div class="card-actions">
+        <button class="button btn-default">Desar</button>
+        <button class="button btn-primary">Inscriure's</button>
       </div>
     </div>
   </div>
