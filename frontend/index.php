@@ -21,6 +21,7 @@
 
     <div class="contingut-index">
         <h2>Ofertes Disponibles</h2>
+        <a href="/details/oferta-detail.php"><button class="button">Oferta test</button></a>
         <?php
         // Aquí irán los datos de la base de datos más adelante
         ?>

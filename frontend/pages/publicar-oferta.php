@@ -7,6 +7,13 @@
 </head>
 
 <body>
+    <div class="header-index">
+        <h1>Borsa Treball</h1>
+        <div class="botons-inici">
+            <button class="button">Registrar</button>
+            <button class="button">Iniciar Sessió</button>
+        </div>
+    </div>
 
     <div class="form-container">
         <div class="form-header">

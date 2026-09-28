@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oferta Detailed</title>
   <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../details/oferta-detail.css" />
 </head>
 
 <body>
@@ -16,7 +17,6 @@
       <button class="button">Iniciar Sessió</button>
     </div>
   </div>
-  <a><button>Tornar</button></a>
 
   <div class="card ant-card-hoverable">
     <div class="card-head">
