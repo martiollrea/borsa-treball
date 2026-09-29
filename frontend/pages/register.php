@@ -23,34 +23,43 @@
     <div>
 
     </div>
-    <form accept="paginaInici.php" class="">
+    <form action="../../backend/validar.php" method="post">
       <div class="form-header">
         <h2>Registra't</h2>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label>Nom</label>
-          <input type="text" class="form-control" required>
+          <input type="text" name="username" class="form-control" required>
         </div>
         <div class="form-group">
           <label>Cognoms</label>
-          <input type="text" class="form-control" required>
+          <input type="text" name="cognoms" class="form-control" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label>Edat</label>
-          <input type="text" class="form-control" required>
+          <input type="text" name="edat" class="form-control" required>
         </div>
         <div class="form-group">
           <label>Telèfon</label>
-          <input type="text" class="form-control" required>
+          <input type="text" name="telefon" class="form-control" required>
         </div>
       </div>
       <div class="form-group">
         <label>Correu Eletrònic</label>
-        <input type="text" class="form-control" required>
+        <input type="email" name="email" class="form-control" required>
       </div>
+      <div class="form-group">
+        <label>Població</label>
+        <input type="text" name="poblacio" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>Contrassenya</label>
+        <input type="password" name="password" class="form-control" required>
+      </div>
+
       <div class="form-actions">
         <div class="botons-inici">
           <a class="button secondary" href="../index.php">Cancel·lar</a>
