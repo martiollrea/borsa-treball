@@ -24,7 +24,7 @@
       <p>Emplena el formulari per publicar una oferta de treball a la borsa.</p>
     </div>
 
-    <form class="custom-form">
+    <form class="custom-form" action="../../backend/validatePublicarOferta.php" method="post">
       <div class="form-group">
         <label for="title">Títol: <span class="required">*</span></label>
         <input type="text" id="title" name="title" class="form-control" required />

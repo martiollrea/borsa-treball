@@ -16,7 +16,7 @@
     </a>
     <div class="botons-inici">
       <a class="button primary" href="../frontend/pages/register.php">Registrar</a>
-      <a class="button secondary">Iniciar Sessió</a>
+      <a class="button secondary" href="../frontend/pages/login.php">Iniciar Sessió</a>
       <a class="button" href="../frontend/pages/publicar-oferta.php">Publicar oferta</a>
     </div>
   </div>
