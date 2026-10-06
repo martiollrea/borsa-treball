@@ -15,7 +15,7 @@
       <h1 style="margin: 0;">Borsa Treball</h1>
     </a>
     <div class="botons-inici">
-      <a class="button secondary">Iniciar Sessió</a>
+      <a class="button secondary" href="../pages/login.php">Iniciar Sessió</a>
     </div>
   </div>
 

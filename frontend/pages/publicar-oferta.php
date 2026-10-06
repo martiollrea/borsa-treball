@@ -31,19 +31,19 @@
       </div>
 
       <div class="form-group">
-        <label for="description">Descripció: <span class="required">*</span></label>
-        <textarea id="description" name="description" class="form-control" required></textarea>
-      </div>
-
-      <div class="form-group">
         <label for="sector">Sector: <span class="required">*</span></label>
         <input type="text" id="sector" name="sector" class="form-control" required />
       </div>
 
       <div class="form-group">
+        <label for="description">Descripció: <span class="required">*</span></label>
+        <textarea id="description" name="description" class="form-control" required></textarea>
+      </div>
+
+      <!-- <div class="form-group">
         <label for="date">Data vàlida: <span class="required">*</span></label>
         <input type="date" id="date" name="date" class="form-control" required />
-      </div>
+      </div> -->
 
       <div class="form-actions">
         <a href="../index.php"><button type="button" class="button secondary">Cancel·lar</button></a>
