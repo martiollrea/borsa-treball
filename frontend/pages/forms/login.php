@@ -5,17 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Borsa Treball</title>
-  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../../styles/style.css">
 </head>
 
 <body>
   <div class="header-index">
-    <a style="text-decoration: none; display: flex; align-items: center; gap: 12px;" href="../index.php">
-      <img height="50px" width="50px" src="../assets/logoCostafreda.png" alt="Logo" />
+    <a style="text-decoration: none; display: flex; align-items: center; gap: 12px;" href="../../index.php">
+      <img height="50px" width="50px" src="../../assets/logoCostafreda.png" alt="Logo" />
       <h1 style="margin: 0;">Borsa Treball</h1>
     </a>
     <div class="botons-inici">
-      <a class="button secondary">Iniciar Sessió</a>
+      <a class="button secondary" href="register.php">Registra't</a>
     </div>
   </div>
 
@@ -37,7 +37,7 @@
       </div>
       <div class="form-actions">
         <div class="botons-inici">
-          <a class="button secondary" href="../index.php">Cancel·lar</a>
+          <a class="button secondary" href="../../index.php">Cancel·lar</a>
           <button class="button primary">Iniciar Sessió</button>
         </div>
       </div>

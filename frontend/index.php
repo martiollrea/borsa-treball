@@ -15,9 +15,9 @@
       <h1 style="margin: 0;">Borsa Treball</h1>
     </a>
     <div class="botons-inici">
-      <a class="button primary" href="../frontend/pages/register.php">Registrar</a>
-      <a class="button secondary" href="../frontend/pages/login.php">Iniciar Sessió</a>
-      <a class="button" href="../frontend/pages/publicar-oferta.php">Publicar oferta</a>
+      <a class="button primary" href="../frontend/pages/forms/register.php">Registra't</a>
+      <a class="button secondary" href="../frontend/pages/forms/login.php">Iniciar Sessió</a>
+      <a class="button" href="../frontend/pages/forms/publicar-oferta.php">Publicar oferta</a>
     </div>
   </div>
 
