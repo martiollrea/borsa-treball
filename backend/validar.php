@@ -1,24 +1,38 @@
 <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    $name = trim($_POST["username"] ?? '');
+    $cognoms = trim($_POST["cognoms"] ?? '');
+    $email = trim($_POST["email"] ?? '');
+    $pass = $_POST["password"] ?? '';
+    $telefon = trim($_POST["telefon"] ?? '');
+    $edat = trim($_POST["edat"] ?? '');
+    $poblacio = trim($_POST["poblacio"] ?? '');
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = $_POST["username"];
-        $cognoms = $_POST["cognoms"];
-        $email = $_POST["email"];
-        $pass = $_POST["password"];
-        $telefon = $_POST["telefon"];
-        $edat = $_POST["edat"];
-        $poblacio = $_POST["poblacio"];
-    
-
-        if (empty($name)) {
-            // Redirigir si hay un error
-            header("Location: ../frontend/index.php?error=100");
-            exit();
-        } else {
-            // Redirigir si el proceso es correcto (Patrón Post/Redirect/Get)
-            header("Location: ../frontend/index.php");
-            exit();
-        }
+    if (empty($name) || empty($cognoms) || empty($email) || empty($pass) || empty($edat) || empty($poblacio)) {
+        header("Location: ../frontend/index.php?error=" . urlencode("Cal omplir tots els camps obligatoris."));
+        exit();
     }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        header("Location: ../frontend/index.php?error=" . urlencode("El format de l'email no és vàlid."));
+        exit();
+    }
+
+    if (strlen($pass) < 8) {
+        header("Location: ../frontend/index.php?error=" . urlencode("La contrasenya ha de tenir com a mínim 8 caràcters."));
+        exit();
+    }
+
+    if (!is_numeric($edat) || $edat <= 0) {
+        header("Location: ../frontend/index.php?error=" . urlencode("L'edat ha de ser un número vàlid."));
+        exit();
+    }
+
+    header("Location: ../frontend/index.php?status=success");
+    exit();
+} else {
+    header("Location: ../frontend/index.php");
+    exit();
+}
 ?>

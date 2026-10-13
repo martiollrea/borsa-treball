@@ -5,10 +5,14 @@
     $password = $_POST["password"];
   }
 
-  if (empty($username) || empty($password)) {
-    header("Location: login.php?error=Empleneu tots els camps");
+    if (empty($username) || empty($password)) {
+      header("Location: login.php?error=Empleneu tots els camps");
+      exit();
+    } else {
+      header("Location: ../frontend/index.php");
+      exit();
   } else {
-    header("Location: ../frontend/index.php");
+    header("Location: login.php");
     exit();
   }
 
