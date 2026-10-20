@@ -9,19 +9,14 @@
 </head>
 
 <body>
-  <div class="header-index">
-    <a style="text-decoration: none; display: flex; align-items: center; gap: 12px;" href="../../index.php">
-      <img height="50px" width="50px" src="../../assets/logoCostafreda.png" alt="Logo" />
-      <h1 style="margin: 0;">Borsa Treball</h1>
-    </a>
-    <div class="botons-inici">
-      <a class="button secondary" href="login.php">Iniciar Sessió</a>
-    </div>
-  </div>
+  <?php
+  // Header
+  require_once '../../assets/shared/header.php';
+  ?>
 
   <?php
-    // Detectem el tipus d'usuari a través de la URL (per defecte 'alumne')
-    $tipus = isset($_GET['tipus']) && $_GET['tipus'] === 'empresa' ? 'empresa' : 'alumne';
+  // Detectem el tipus d'usuari a través de la URL (per defecte 'alumne')
+  $tipus = isset($_GET['tipus']) && $_GET['tipus'] === 'empresa' ? 'empresa' : 'alumne';
   ?>
   <div class='selector-tipus-container'>
     <div class='selector-tipus-usuari'>
@@ -33,80 +28,82 @@
   </div>      
 
 
-  <div class="form-container">
-    <form action="../../../backend/validar.php" method="post">
+  <!-- Camp ocult per enviar al backend quin tipus d'usuari es registra -->
       <input type="hidden" name="tipus_usuari" value="<?= $tipus ?>">
+
+
+  <div class="form-container">
+    <form action="../../backend/validar.php" method="post">
       <div class="form-header">
         <h2>Registra't</h2>
       </div>
-      
-      <?php if($tipus === 'alumne'): ?>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Nom</label>
-          <input type="text" name="username" class="form-control" required>
-        </div>
-        <div class='form-group'>
-          <label>Cognoms</label>
-          <input type="text" name="cognoms" class="form-control" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Edat</label>
-          <input type="text" name="edat" class='form-control' required>
-        </div>
-        <div class="form-group">
-          <label>Telèfon</label>
-          <input type="text" name="telefon" class="form-control" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Correu Eletrònic</label>
-        <input type="email" name="email" class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label>Població</label>
-        <input type="text" name="poblacio" class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label>Contrassenya</label>
-        <input type="password" name="password" class="form-control" required>
-      </div>
 
+      <?php if ($tipus === 'alumne'): ?>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nom</label>
+            <input type="text" name="username" class="form-control" required>
+          </div>
+          <div class='form-group'>
+            <label>Cognoms</label>
+            <input type="text" name="cognoms" class="form-control" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Edat</label>
+            <input type="text" name="edat" class='form-control' required>
+          </div>
+          <div class="form-group">
+            <label>Telèfon</label>
+            <input type="text" name="telefon" class="form-control" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Correu Eletrònic</label>
+          <input type="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Població</label>
+          <input type="text" name="poblacio" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Contrassenya</label>
+          <input type="password" name="password" class="form-control" required>
+        </div>
 
       <?php elseif ($tipus === 'empresa'): ?>
-        
-      <div class="form-group">
+
+        <div class="form-group">
           <label>Nom Empresa</label>
           <input type="text" name="username" class="form-control" required>
         </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Telèfon</label>
-          <input type="text" name="telefon" class="form-control" required>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Telèfon</label>
+            <input type="text" name="telefon" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label>Correu Eletrònic</label>
+            <input type="email" name="email" class="form-control" required>
+          </div>
         </div>
-      
-      <div class="form-group">
-        <label>Correu Eletrònic</label>
-        <input type="email" name="email" class="form-control" required>
-      </div>
-      </div>
-      <div class="form-row">
-      <div class="form-group">
-        <label>Ubicació</label>
-        <input type="text" name="poblacio" class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label>Codi Postal</label>
-        <input type="text" name="poblacio" class="form-control" required>
-      </div>
-      </div>
-      <div class="form-group">
-        <label>Contrassenya</label>
-        <input type="password" name="password" class="form-control" required>
-      </div>
-      
+        <div class="form-row">
+          <div class="form-group">
+            <label>Ubicació</label>
+            <input type="text" name="poblacio" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Codi Postal</label>
+            <input type="text" name="poblacio" class="form-control" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Contrassenya</label>
+          <input type="password" name="password" class="form-control" required>
+        </div>
+
 
       <?php endif ?>
       <div class="form-actions">

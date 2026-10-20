@@ -10,18 +10,10 @@
 
 <body>
 
-  <!-- HEADER -->
-  <div class="header-index">
-    <a style="text-decoration: none; display: flex; align-items: center; gap: 12px;" href="../frontend/index.php">
-      <img height="50px" width="50px" src="../frontend/assets/logoCostafreda.png" alt="Logo" />
-      <h1 style="margin: 0;">Borsa Treball</h1>
-    </a>
-    <div class="botons-inici">
-      <a class="button primary" href="../frontend/pages/forms/register.php">Registra't</a>
-      <a class="button secondary" href="../frontend/pages/forms/login.php">Iniciar Sessió</a>
-      <a class="button" href="../frontend/pages/forms/publicar-oferta.php">Publicar oferta</a>
-    </div>
-  </div>
+  <?php
+  // Header
+  require_once '../../assets/shared/header.php';
+  ?>
 
   <!-- CONTINGUT PRINCIPAL -->
   <div class="contingut-index">
