@@ -15,8 +15,8 @@
     </a>
   <?php if($showButtons == true): ?>
     <div class="botons-inici">
-      <a class="button primary" href="register.php">Registrar</a>
-      <a class="button secondary" href="login.php">Iniciar Sessió</a>
+      <a class="button primary" href="../../../frontend/pages/forms/register.php">Registrar</a>
+      <a class="button secondary" href="../../../frontend/pages/forms/login.php">Iniciar Sessió</a>
     </div>
   <?php elseif($showButtons == false): ?>
 <!-- DESPLEGABLE DEL PERFIL -->
@@ -33,7 +33,7 @@
             <span>Hola, <strong><?php echo htmlspecialchars($_SESSION['username'] ?? 'Usuari'); ?></strong></span>
           </div>
           <hr class="dropdown-divider">
-          <a href="" class="dropdown-item logout-item">
+          <a href="../../../backend/logout.php" class="dropdown-item logout-item">
             🚪 Tancar Sessió
           </a>
         </div>

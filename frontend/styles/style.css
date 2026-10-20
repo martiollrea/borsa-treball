@@ -926,3 +926,98 @@ textarea.form-control {
   box-shadow: 0 4px 10px rgba(8, 145, 178, 0.25);
   cursor: default;
 }
+
+/* ==========================================================================
+   DESPLEGABLE D'USUARI (AMB INICIAL)
+   ========================================================================== */
+
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Botón circular */
+.avatar-circle-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--cyan-primary);
+  color: #ffffff;
+  border: 2px solid var(--cyan-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.avatar-circle-btn:hover,
+.user-dropdown:focus-within .avatar-circle-btn {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+}
+
+/* Menú flotante */
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background-color: #ffffff;
+  min-width: 180px;
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  z-index: 1000;
+  
+  /* Estado oculto inicial */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+/* Mostrar menú desplegable */
+.user-dropdown:hover .dropdown-menu,
+.user-dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Elementos internos del menú */
+.dropdown-header {
+  padding: 0.6rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-dark);
+}
+
+.dropdown-divider {
+  border: none;
+  border-top: 1px solid #f1f5f9;
+  margin: 0.3rem 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Estilo específico para Tancar Sessió */
+.dropdown-item.logout-item {
+  color: #ef4444;
+}
+
+.dropdown-item.logout-item:hover {
+  background-color: #fef2f2;
+  color: #dc2626;
+}

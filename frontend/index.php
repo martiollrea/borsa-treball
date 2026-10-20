@@ -12,7 +12,7 @@
 
   <?php
   // Header
-  require_once '../../assets/shared/header.php';
+  require_once '../frontend/assets/shared/header.php';
   ?>
 
   <!-- CONTINGUT PRINCIPAL -->

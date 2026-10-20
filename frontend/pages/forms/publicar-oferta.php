@@ -9,6 +9,7 @@
 <body>
   <?php
   // Header
+  $path = "./";
   require_once '../../assets/shared/header.php';
   ?>
 
