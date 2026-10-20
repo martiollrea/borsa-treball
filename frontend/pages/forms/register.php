@@ -30,15 +30,12 @@
         <a href='register.php?tipus=empresa' class='btn-option <?= ($tipus === 'empresa') ? 'active' : '' ?>'>Sóc una empresa</a>
       </form>
     </div>
-  </div>
-
-
-  <!-- Camp ocult per enviar al backend quin tipus d'usuari es registra -->
-      <input type="hidden" name="tipus_usuari" value="<?= $tipus ?>">
+  </div>      
 
 
   <div class="form-container">
-    <form action="../../backend/validar.php" method="post">
+    <form action="../../../backend/validar.php" method="post">
+      <input type="hidden" name="tipus_usuari" value="<?= $tipus ?>">
       <div class="form-header">
         <h2>Registra't</h2>
       </div>

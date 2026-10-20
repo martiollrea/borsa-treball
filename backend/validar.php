@@ -1,4 +1,9 @@
 <?php
+session_start();
+$_SESSION['username'] = $_POST["username"];
+$_SESSION['tipus_usuari'] = $_POST["tipus"];
+$_SESSION['password'] = $_POST["password"];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $name = trim($_POST["username"] ?? '');
