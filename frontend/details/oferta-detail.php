@@ -9,30 +9,21 @@
 </head>
 
 <body>
-
-  <!-- HEADER -->
-  <div class="header-index">
-    <a style="text-decoration: none; display: flex; align-items: center; gap: 12px;" href="../index.php">
-      <img height="50px" width="50px" src="../assets/logoCostafreda.png" alt="Logo" />
-      <h1 style="margin: 0;">Borsa Treball</h1>
-    </a>
-    <div class="botons-inici">
-      <a class="button primary" href="../pages/register.php">Registrar</a>
-      <a class="button secondary" href="../pages/login.php">Iniciar Sessió</a>
-      <a class="button" href="../pages/publicar-oferta.php">Publicar oferta</a>
-    </div>
-  </div>
+  <?php
+  // Header
+  require_once '../../assets/shared/header.php';
+  ?>
 
   <!-- CONTINGUT DETALL -->
   <div class="container-detail">
-    
+
     <a href="../index.php" class="back-link">← Tornar a les ofertes</a>
 
     <div class="detail-card">
 
       <!-- HERO CAPÇALERA DE L'OFERTA -->
       <div class="detail-hero">
-        
+
         <div class="detail-hero-header">
           <div class="detail-hero-info">
             <span class="badge-status">Oferta Activa</span>
@@ -58,7 +49,7 @@
 
         <!-- COLUMNA ESQUERRA (DESCRIPCIÓ) -->
         <div class="detail-main-content">
-          
+
           <section class="detail-section">
             <h2>Descripció del lloc de treball</h2>
             <p class="description-text">

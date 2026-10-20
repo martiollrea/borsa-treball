@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Publicar oferta</title>
   <link rel="stylesheet" href="../../styles/style.css">
 </head>
 
 <body>
-<?php 
-    // Header
-    require_once '../../assets/shared/header.php'; 
+  <?php
+  // Header
+  require_once '../../assets/shared/header.php';
   ?>
 
   <div class="form-container">
