@@ -12,13 +12,18 @@
   <?php
   // Header
   require_once '../../assets/shared/header.php';
+
+  if (isset($_SESSION['error'])) {
+    echo '<p> error <p>';
+    unset($_SESSION['error']);
+  }
   ?>
 
   <div class="form-container">
     <div>
 
     </div>
-    <form method="post" action="../../backend/validateLogin.php">
+    <form method="post" action="../../../backend/validateLogin.php">
       <div class="form-header">
         <h2>Inicia sessió</h2>
       </div>

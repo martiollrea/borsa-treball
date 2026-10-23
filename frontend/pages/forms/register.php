@@ -28,7 +28,7 @@
 
 
   <div class="form-container">
-    <form action="../../../backend/validar.php" method="post">
+    <form action="../../../backend/validateRegister.php" method="post">
       <input type="hidden" name="tipus_usuari" value="<?= $tipus ?>">
       <div class="form-header">
         <h2>Registra't</h2>

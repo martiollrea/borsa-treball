@@ -1,19 +1,31 @@
-<?php 
+<?php
+session_start();
 
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $password = $_POST["password"];  
+$usuaris_registrats = [
+  'admin' => password_hash('adminadmin', PASSWORD_DEFAULT)
+];
 
-    if (empty($username) || empty($password)) {
-      header("Location: login.php?error=Empleneu tots els camps");
-      exit();
-    } else {
-      header("Location: ../frontend/index.php");
-      exit();
-    }
-  } else {
-    header("Location: login.php");
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $username = $_POST["username"] ?? '';
+  $password = $_POST["password"] ?? '';
+
+  if (empty($username) || empty($password)) {
+    header("Location: login.php?error=Empleneu tots els camps");
     exit();
   }
 
-?>
+  if (
+    isset($usuaris_registrats[$username]) &&
+    password_verify($password, $usuaris_registrats[$username])
+  ) {
+    $_SESSION['username'] = $username;
+    header("Location: ../frontend/index.php");
+    exit();
+  } else {
+    header("Location: ../frontend/pages/forms/login.php?error=" . urldecode("Usuari o contrassenya incorrectes"));
+    exit();
+  }
+} else {
+  header("Location: login.php");
+  exit();
+}
