@@ -12,11 +12,6 @@
   <?php
   // Header
   require_once '../../assets/shared/header.php';
-
-  if (isset($_SESSION['error'])) {
-    echo '<p> error <p>';
-    unset($_SESSION['error']);
-  }
   ?>
 
   <div class="form-container">
@@ -27,6 +22,7 @@
       <div class="form-header">
         <h2>Inicia sessió</h2>
       </div>
+
       <div class="form-group">
         <label>Nom d'usuari</label>
         <input type="text" name="username" class="form-control" required>
@@ -35,13 +31,16 @@
         <label>Contrassenya</label>
         <input type="password" name="password" class="form-control" required>
       </div>
+           <?php     if (isset($_GET['error'])) {
+    echo '<p style="color:red"> error <p>';
+    unset($_GET['error']);
+  }?>
       <div class="form-actions">
         <div class="botons-inici">
           <a class="button secondary" href="../../index.php">Cancel·lar</a>
           <button class="button primary">Iniciar Sessió</button>
         </div>
       </div>
-
     </form>
   </div>
 </body>

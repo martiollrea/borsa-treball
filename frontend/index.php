@@ -162,23 +162,62 @@
     </div>
   </main>
 
-  <!-- 4. BLOC BIVALENT (Alumnes vs Empreses) -->
+  <!-- 4. ACCIONS DINÀMIQUES SEGONS L'ESTAT DE LA SESSIÓ -->
   <section class="dual-section">
     <div class="container dual-grid">
-      
-      <div class="dual-card student-card">
-        <div class="dual-icon">🎓</div>
-        <h3>Ets Alumne o Exalumne?</h3>
-        <p>Crea el teu perfil, puja el teu currículum i inscriu-te directament a les ofertes adaptades als teus estudis.</p>
-        <a href="pages/forms/register.php?tipus=alumne" class="button primary">Crear el meu perfil</a>
-      </div>
 
-      <div class="dual-card company-card">
-        <div class="dual-icon">🏢</div>
-        <h3>Ets una Empresa?</h3>
-        <p>Publica les teves vacants de forma immediata i troba el talent tècnic qualificat format al nostre centre.</p>
-        <a href="pages/forms/register.php?tipus=empresa" class="button secondary">Registrar la meva empresa</a>
-      </div>
+      <?php if (!isset($_SESSION['username'])): ?>
+
+        <!-- ESTAT 1: SENSE SESSIÓ INICIADA (Invitats) -->
+        <div class="dual-card student-card">
+          <div class="dual-icon">🎓</div>
+          <h3>Ets Alumne o Exalumne?</h3>
+          <p>Crea el teu perfil, puja el teu currículum i inscriu-te directament a les ofertes adaptades als teus estudis.</p>
+          <a href="pages/forms/register.php?tipus=alumne" class="button primary">Crear el meu perfil</a>
+        </div>
+
+        <div class="dual-card company-card">
+          <div class="dual-icon">🏢</div>
+          <h3>Ets una Empresa?</h3>
+          <p>Publica les teves vacants de forma immediata i troba el talent tècnic qualificat format al nostre centre.</p>
+          <a href="pages/forms/register.php?tipus=empresa" class="button secondary">Registrar la meva empresa</a>
+        </div>
+
+      <?php elseif (($_SESSION['tipus_usuari'] ?? '') === 'alumne'): ?>
+
+        <!-- ESTAT 2: SESSIÓ D'ALUMNE INICIADA -->
+        <div class="dual-card student-card">
+          <div class="dual-icon">📄</div>
+          <h3>El teu Perfil i CV</h3>
+          <p>Mantén el teu currículum i dades de contacte actualitzades per destacar davant les empreses.</p>
+          <a href="pages/perfil.php" class="button primary">Gestionar el meu perfil</a>
+        </div>
+
+        <div class="dual-card student-card">
+          <div class="dual-icon">🎯</div>
+          <h3>Les teves Candidatures</h3>
+          <p>Consulta l'estat dels teus processos de selecció i les ofertes on t'has inscrit.</p>
+          <a href="pages/candidatures.php" class="button secondary">Veure inscripcions</a>
+        </div>
+
+      <?php else: ?>
+
+        <!-- ESTAT 3: SESSIÓ D'EMPRESA INICIADA -->
+        <div class="dual-card company-card">
+          <div class="dual-icon">➕</div>
+          <h3>Publicar Nova Oferta</h3>
+          <p>Tens un lloc vacant? Publica una oferta de treball per trobar candidats qualificats del centre.</p>
+          <a href="pages/forms/publicar-oferta.php" class="button primary">Publicar una oferta</a>
+        </div>
+
+        <div class="dual-card company-card">
+          <div class="dual-icon">📋</div>
+          <h3>Gestió d'Ofertes</h3>
+          <p>Revisa les ofertes que tens actives i administra les sol·licituds dels alumnes candidats.</p>
+          <a href="pages/gestio-ofertes.php" class="button secondary">Les meves ofertes</a>
+        </div>
+
+      <?php endif; ?>
 
     </div>
   </section>
