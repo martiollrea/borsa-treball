@@ -10,7 +10,6 @@
 
 <body>
   <?php
-  // Header
   require_once '../assets/shared/header.php';
   ?>
 
@@ -129,6 +128,10 @@
     </div>
 
   </div>
+
+  <?php
+  require_once '../assets/shared/footer.php';
+  ?>
 
 </body>
 

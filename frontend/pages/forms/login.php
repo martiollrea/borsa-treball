@@ -10,7 +10,6 @@
 
 <body>
   <?php
-  // Header
   require_once '../../assets/shared/header.php';
   ?>
 
@@ -43,6 +42,7 @@
       </div>
     </form>
   </div>
+
 </body>
 
 </html>

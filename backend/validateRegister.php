@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $tipus = $_POST["tipus_usuari"] ?? 'alumne';
   $errors = [];
 
-  // Recollim totes les dades
+  // Recollir dades
   $username       = trim($_POST["username"] ?? '');
   $cognoms        = trim($_POST["cognoms"] ?? '');
   $email          = trim($_POST["email"] ?? '');
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   $registerUrl = "../frontend/pages/forms/register.php?tipus=" . urlencode($tipus);
 
-  // --- VALIDACIONS COMUNS (Per a tots dos tipus) ---
+  // Validacions comuns
   if (empty($username)) {
     $errors['username'] = ($tipus === 'empresa') ? "El nom de l'empresa és obligatori." : "El nom és obligatori.";
   }
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $errors['repetir_password'] = "Les contrasenyes no coincideixen.";
   }
 
-  // --- VALIDACIONS ESPECÍFIQUES D'ALUMNE ---
+  // Validacions alumne
   if ($tipus === 'alumne') {
     if (empty($cognoms)) {
       $errors['cognoms'] = "Els cognoms són obligatoris.";
@@ -67,14 +67,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
   }
 
-  // --- VALIDACIONS ESPECÍFIQUES D'EMPRESA ---
+  // Validacions empresa
   if ($tipus === 'empresa') {
     if (empty($codi_postal)) {
       $errors['codi_postal'] = "El codi postal és obligatori.";
     }
   }
 
-  // SI HI HA ERRORS: Guardem a la sessió i tornem al formulari
+  // ERRORS: Guardem a la sessió i tornem al formulari
   if (!empty($errors)) {
     $_SESSION['errors'] = $errors;
     $_SESSION['old_input'] = [
@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     exit();
   }
 
-  // SI TOT ÉS CORRECTE: Iniciem la sessió
+  // TOT CORRECTE: Iniciem la sessió
   unset($_SESSION['errors'], $_SESSION['old_input']);
 
   $_SESSION['username'] = $username;

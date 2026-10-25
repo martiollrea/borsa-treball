@@ -8,7 +8,6 @@
 
 <body>
   <?php
-  // Header
   $path = "./";
   require_once '../../assets/shared/header.php';
   ?>
@@ -46,6 +45,11 @@
       </div>
     </form>
   </div>
+
+  <?php
+  require_once '../../assets/shared/footer.php';
+  ?>
+
 </body>
 
 </html>
