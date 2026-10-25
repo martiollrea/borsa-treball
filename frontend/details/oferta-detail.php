@@ -11,7 +11,7 @@
 <body>
   <?php
   // Header
-  require_once '../../assets/shared/header.php';
+  require_once '../assets/shared/header.php';
   ?>
 
   <!-- CONTINGUT DETALL -->

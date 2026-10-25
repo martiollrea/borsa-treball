@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
 
 $usuaris_registrats = [
   'admin' => password_hash('adminadmin', PASSWORD_DEFAULT)

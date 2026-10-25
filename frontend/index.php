@@ -1,6 +1,6 @@
 <?php
-  // Ruta relativa des de la l'arrel de frontend/
-  $path = "./";
+// Ruta relativa des de la l'arrel de frontend/
+$path = "./";
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -94,7 +94,7 @@
           <div class="card-company-header">
             <h3 class="titol-oferta">Desenvolupador Web Front-End</h3>
           </div>
-          
+
           <div class="requisits-generals">
             <span class="tag tag-blue">Grau DAW / DAM</span>
             <span class="tag tag-default">HTML5 & CSS3</span>
@@ -108,7 +108,7 @@
 
         <div class="card-footer">
           <span class="data-oferta">📅 Publicat el 24/09/2026</span>
-          <a href="details/oferta-detail.php" class="button primary button-sm">Veure detall →</a>
+          <a href="../../frontend/details/oferta-detail.php" class="button primary button-sm">Veure detall →</a>
         </div>
       </article>
 
@@ -131,7 +131,7 @@
 
         <div class="card-footer">
           <span class="data-oferta">📅 Publicat el 22/09/2026</span>
-          <a href="details/oferta-detail.php" class="button primary button-sm">Veure detall →</a>
+          <a href="../../frontend/details/oferta-detail.php" class="button primary button-sm">Veure detall →</a>
         </div>
       </article>
 
@@ -155,7 +155,7 @@
 
         <div class="card-footer">
           <span class="data-oferta">📅 Publicat el 20/09/2026</span>
-          <a href="details/oferta-detail.php" class="button primary button-sm">Veure detall →</a>
+          <a href="../../frontend/details/oferta-detail.php" class="button primary button-sm">Veure detall →</a>
         </div>
       </article>
 
@@ -165,16 +165,13 @@
   <!-- 4. ACCIONS DINÀMIQUES SEGONS L'ESTAT DE LA SESSIÓ -->
   <section class="dual-section">
     <div class="container dual-grid">
-
-      <?php if (!isset($_SESSION['username'])): ?>
-
-        <!-- ESTAT 1: SENSE SESSIÓ INICIADA (Invitats) -->
-        <div class="dual-card student-card">
-          <div class="dual-icon">🎓</div>
-          <h3>Ets Alumne o Exalumne?</h3>
-          <p>Crea el teu perfil, puja el teu currículum i inscriu-te directament a les ofertes adaptades als teus estudis.</p>
-          <a href="pages/forms/register.php?tipus=alumne" class="button primary">Crear el meu perfil</a>
-        </div>
+      
+      <div class="dual-card student-card">
+        <div class="dual-icon">🎓</div>
+        <h3>Ets Alumne o Exalumne?</h3>
+        <p>Crea el teu perfil, puja el teu currículum i inscriu-te directament a les ofertes adaptades als teus estudis.</p>
+        <a href="pages/forms/register.php?tipus=alumne" class="button primary">Crear el meu perfil</a>
+      </div>
 
         <div class="dual-card company-card">
           <div class="dual-icon">🏢</div>
@@ -258,7 +255,7 @@
   <!-- 6. PIE DE PÁGINA (FOOTER) -->
   <footer class="site-footer">
     <div class="container footer-grid">
-      
+
       <div class="footer-col">
         <div class="footer-brand">
           <img height="40px" width="40px" src="assets/logoCostafreda.png" alt="Logo" />
@@ -297,4 +294,5 @@
   </footer>
 
 </body>
+
 </html>
