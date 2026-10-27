@@ -25,6 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   ) {
     $_SESSION['tipus_usuari'] = "alumne";
     $_SESSION['username'] = $username;
+    $_SESSION['tokenSecret'] = bin2hex(random_bytes(32));
+
     header("Location: ../frontend/index.php");
     exit();
   } else {

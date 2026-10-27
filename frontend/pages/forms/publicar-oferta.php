@@ -19,6 +19,7 @@
     </div>
 
     <form class="custom-form">
+      <input type="hidden" name="token" value="<?= htmlspecialchars($_SESSION['tokenSecret'] ?? '') ?>">
       <div class="form-group">
         <label for="title">Títol: <span class="required">*</span></label>
         <input type="text" id="title" name="title" class="form-control" required />
