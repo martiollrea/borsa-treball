@@ -25,7 +25,8 @@ $path = "./";
 
       <!-- Formulari de Cerca -->
       <form class="search-box" action="index.php" method="get">
-        <input type="text" name="query" placeholder="Especialitat, perfil o paraula clau (ex: PHP, DAW...)" class="search-input">
+        <input type="text" name="query" placeholder="Especialitat, perfil o paraula clau (ex: PHP, DAW...)"
+          class="search-input">
         <select name="categoria" class="search-select">
           <option value="">Tots els cicles</option>
           <option value="informatica">Informàtica i Comunicacions</option>
@@ -102,7 +103,8 @@ $path = "./";
           </div>
 
           <p class="detall-oferta">
-            Cerquem un desenvolupador web amb experiència per unir-se al nostre equip i treballar en projectes innovadors.
+            Cerquem un desenvolupador web amb experiència per unir-se al nostre equip i treballar en projectes
+            innovadors.
           </p>
         </div>
 
@@ -167,13 +169,14 @@ $path = "./";
     <div class="container dual-grid">
 
       <?php if (!isset($_SESSION['tipus_usuari'])): ?>
-      
-      <div class="dual-card student-card">
-        <div class="dual-icon">🎓</div>
-        <h3>Ets Alumne o Exalumne?</h3>
-        <p>Crea el teu perfil, puja el teu currículum i inscriu-te directament a les ofertes adaptades als teus estudis.</p>
-        <a href="pages/forms/register.php?tipus=alumne" class="button primary">Crear el meu perfil</a>
-      </div>
+
+        <div class="dual-card student-card">
+          <div class="dual-icon">🎓</div>
+          <h3>Ets Alumne o Exalumne?</h3>
+          <p>Crea el teu perfil, puja el teu currículum i inscriu-te directament a les ofertes adaptades als teus estudis.
+          </p>
+          <a href="pages/forms/register.php?tipus=alumne" class="button primary">Crear el meu perfil</a>
+        </div>
 
         <div class="dual-card company-card">
           <div class="dual-icon">🏢</div>

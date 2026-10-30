@@ -10,6 +10,11 @@
   <?php
   $path = "./";
   require_once '../../assets/shared/header.php';
+
+  if ($_SESSION['tipus_usuari'] != "empresa") {
+    header("Location: ../../index.php");
+    exit();
+  }
   ?>
 
   <div class="form-container">
@@ -18,8 +23,8 @@
       <p>Emplena el formulari per publicar una oferta de treball a la borsa.</p>
     </div>
 
-    <form class="custom-form">
-      <input type="hidden" name="token" value="<?= htmlspecialchars($_SESSION['tokenSecret'] ?? '') ?>">
+    <form class="custom-form" method="POST" action="../../../backend/processa_oferta.php">
+      <input type="hidden" name="tokenSecret" value="<?= htmlspecialchars($_SESSION['tokenSecret'] ?? '') ?>">
       <div class="form-group">
         <label for="title">Títol: <span class="required">*</span></label>
         <input type="text" id="title" name="title" class="form-control" required />

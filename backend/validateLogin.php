@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     isset($usuaris_registrats[$username]) &&
     password_verify($password, $usuaris_registrats[$username])
   ) {
-    $_SESSION['tipus_usuari'] = "alumne";
+    $_SESSION['tipus_usuari'] = "empresa";
     $_SESSION['username'] = $username;
     $_SESSION['tokenSecret'] = bin2hex(random_bytes(32));
 

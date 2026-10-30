@@ -52,7 +52,9 @@
           <section class="detail-section">
             <h2>Descripció del lloc de treball</h2>
             <p class="description-text">
-              Estem cercant un/a desenvolupador/a web Front-End apassionat/da per la tecnologia i amb ganes de formar part d'un equip dinàmic i innovador. La persona seleccionada s'encarregarà de crear i mantenir interfícies web modernes, millorar l'experiència d'usuari i col·laborar directament amb l'equip de disseny i backend.
+              Estem cercant un/a desenvolupador/a web Front-End apassionat/da per la tecnologia i amb ganes de formar
+              part d'un equip dinàmic i innovador. La persona seleccionada s'encarregarà de crear i mantenir interfícies
+              web modernes, millorar l'experiència d'usuari i col·laborar directament amb l'equip de disseny i backend.
             </p>
           </section>
 
@@ -80,7 +82,8 @@
           <section class="detail-section">
             <div class="empresa-box">
               <h3>Sobre Tech Solutions S.L.</h3>
-              <p>Empresa líder en solucions tecnològiques a les comarques de Lleida, especialitzada en desenvolupament de programari a mida i transformació digital per a pimes.</p>
+              <p>Empresa líder en solucions tecnològiques a les comarques de Lleida, especialitzada en desenvolupament
+                de programari a mida i transformació digital per a pimes.</p>
             </div>
           </section>
 

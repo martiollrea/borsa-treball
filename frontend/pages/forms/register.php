@@ -34,8 +34,10 @@ $tipus = ($tipus === 'empresa') ? 'empresa' : 'alumne';
 
   <div class='selector-tipus-container'>
     <div class='selector-tipus-usuari'>
-      <a href='register.php?tipus=alumne' class='btn-option <?= ($tipus === 'alumne') ? 'active' : '' ?>'>Sóc un alumne</a>
-      <a href='register.php?tipus=empresa' class='btn-option <?= ($tipus === 'empresa') ? 'active' : '' ?>'>Sóc una empresa</a>
+      <a href='register.php?tipus=alumne' class='btn-option <?= ($tipus === 'alumne') ? 'active' : '' ?>'>Sóc un
+        alumne</a>
+      <a href='register.php?tipus=empresa' class='btn-option <?= ($tipus === 'empresa') ? 'active' : '' ?>'>Sóc una
+        empresa</a>
     </div>
   </div>
 
@@ -53,7 +55,8 @@ $tipus = ($tipus === 'empresa') ? 'empresa' : 'alumne';
         <div class="form-row">
           <div class="form-group">
             <label>Nom</label>
-            <input type="text" name="username" class="form-control" value="<?= htmlspecialchars($old['username'] ?? '') ?>">
+            <input type="text" name="username" class="form-control"
+              value="<?= htmlspecialchars($old['username'] ?? '') ?>">
             <?php if (isset($errors['username'])): ?>
               <span class="error-msg"><?= $errors['username'] ?></span>
             <?php endif; ?>
@@ -150,7 +153,8 @@ $tipus = ($tipus === 'empresa') ? 'empresa' : 'alumne';
         <div class="form-row">
           <div class="form-group">
             <label>Ubicació</label>
-            <input type="text" name="poblacio" class="form-control" value="<?= htmlspecialchars($old['poblacio'] ?? '') ?>">
+            <input type="text" name="poblacio" class="form-control"
+              value="<?= htmlspecialchars($old['poblacio'] ?? '') ?>">
             <?php if (isset($errors['poblacio'])): ?>
               <span class="error-msg"><?= $errors['poblacio'] ?></span>
             <?php endif; ?>
@@ -158,7 +162,8 @@ $tipus = ($tipus === 'empresa') ? 'empresa' : 'alumne';
 
           <div class="form-group">
             <label>Codi Postal</label>
-            <input type="text" name="codi_postal" class="form-control" value="<?= htmlspecialchars($old['codi_postal'] ?? '') ?>">
+            <input type="text" name="codi_postal" class="form-control"
+              value="<?= htmlspecialchars($old['codi_postal'] ?? '') ?>">
             <?php if (isset($errors['codi_postal'])): ?>
               <span class="error-msg"><?= $errors['codi_postal'] ?></span>
             <?php endif; ?>

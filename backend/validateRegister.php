@@ -9,15 +9,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $errors = [];
 
   // Recollir dades
-  $username       = trim($_POST["username"] ?? '');
-  $cognoms        = trim($_POST["cognoms"] ?? '');
-  $email          = trim($_POST["email"] ?? '');
-  $pass           = $_POST["password"] ?? '';
-  $pass_repeat    = $_POST["repetir_password"] ?? '';
-  $telefon        = trim($_POST["telefon"] ?? '');
-  $edat           = trim($_POST["edat"] ?? '');
-  $poblacio       = trim($_POST["poblacio"] ?? '');
-  $codi_postal    = trim($_POST["codi_postal"] ?? '');
+  $username = trim($_POST["username"] ?? '');
+  $cognoms = trim($_POST["cognoms"] ?? '');
+  $email = trim($_POST["email"] ?? '');
+  $pass = $_POST["password"] ?? '';
+  $pass_repeat = $_POST["repetir_password"] ?? '';
+  $telefon = trim($_POST["telefon"] ?? '');
+  $edat = trim($_POST["edat"] ?? '');
+  $poblacio = trim($_POST["poblacio"] ?? '');
+  $codi_postal = trim($_POST["codi_postal"] ?? '');
 
   $registerUrl = "../frontend/pages/forms/register.php?tipus=" . urlencode($tipus);
 
@@ -78,13 +78,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   if (!empty($errors)) {
     $_SESSION['errors'] = $errors;
     $_SESSION['old_input'] = [
-      'username'     => $username,
-      'cognoms'      => $cognoms,
-      'email'        => $email,
-      'telefon'      => $telefon,
-      'edat'         => $edat,
-      'poblacio'     => $poblacio,
-      'codi_postal'  => $codi_postal,
+      'username' => $username,
+      'cognoms' => $cognoms,
+      'email' => $email,
+      'telefon' => $telefon,
+      'edat' => $edat,
+      'poblacio' => $poblacio,
+      'codi_postal' => $codi_postal,
       'tipus_usuari' => $tipus
     ];
 

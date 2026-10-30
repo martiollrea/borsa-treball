@@ -30,10 +30,10 @@
         <label>Contrassenya</label>
         <input type="password" name="password" class="form-control" required>
       </div>
-           <?php     if (isset($_GET['error'])) {
-    echo '<p style="color:red"> error <p>';
-    unset($_GET['error']);
-  }?>
+      <?php if (isset($_GET['error'])) {
+        echo '<p style="color:red"> error <p>';
+        unset($_GET['error']);
+      } ?>
       <div class="form-actions">
         <div class="botons-inici">
           <a class="button secondary" href="../../index.php">Cancel·lar</a>
