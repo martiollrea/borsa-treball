@@ -1,2 +1,6 @@
+
+@TODO: 
+
 VALIDACIO CORREUS REALS (enviar un correu al correu que s'intenta registra per a que confirmi el registre)
 VALIDAR EMPRESES (fer un empresaValidat, mentre no estigui validat no deixar fer "res")
+

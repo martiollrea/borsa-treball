@@ -3,6 +3,8 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 
+
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   $tipus = $_POST["tipus_usuari"] ?? 'alumne';
@@ -95,11 +97,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   // TOT CORRECTE: Iniciem la sessió
   unset($_SESSION['errors'], $_SESSION['old_input']);
 
-  $_SESSION['username'] = $username;
-  $_SESSION['tipus_usuari'] = $tipus;
+  $hashedPassowrd = password_hash($pass, PASSWORD_DEFAULT);
 
-  header("Location: ../frontend/index.php?status=success");
-  exit();
+  require_once '../borsa-treball/backend/api/inserts/insertUsuari.php';
+
+  if ($insercioCorrecta) {
+    $_SESSION['username'] = $username;
+    $_SESSION['tipus_usuari'] = $tipus;
+
+    header("Location: ../frontend/index.php?status=success");
+    exit();
+  } else {
+    $_SESSION['errors'] = ['database' => "No s'ha pogut guardar l'usuari a la base de dades."];
+    $_SESSION['old_input'] = $_POST;
+
+    header("Location: " . $registerUrl);
+    exit();
+  }
 } else {
   header("Location: ../frontend/pages/forms/register.php");
   exit();

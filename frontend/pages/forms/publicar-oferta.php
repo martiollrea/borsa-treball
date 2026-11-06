@@ -23,7 +23,7 @@
       <p>Emplena el formulari per publicar una oferta de treball a la borsa.</p>
     </div>
 
-    <form class="custom-form" method="POST" action="../../../backend/validatePublicarOferta.php">
+    <form class="custom-form" method="POST" action="../../../backend/validations/validatePublicarOferta.php">
       <input type="hidden" name="tokenSecret" value="<?= htmlspecialchars($_SESSION['tokenSecret'] ?? '') ?>">
       <div class="form-group">
         <label for="title">Títol: <span class="required">*</span></label>

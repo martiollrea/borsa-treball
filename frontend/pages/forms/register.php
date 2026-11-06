@@ -42,7 +42,7 @@ $tipus = ($tipus === 'empresa') ? 'empresa' : 'alumne';
   </div>
 
   <div class="form-container">
-    <form action="../../../backend/validateRegister.php" method="post">
+    <form action="../../../backend/validations/validateRegister.php" method="post">
       <input type="hidden" name="tipus_usuari" value="<?= $tipus ?>">
 
       <div class="form-header">

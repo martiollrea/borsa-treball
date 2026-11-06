@@ -17,7 +17,7 @@
     <div>
 
     </div>
-    <form method="post" action="../../../backend/validateLogin.php">
+    <form method="post" action="../../../backend/validations/validateLogin.php">
       <div class="form-header">
         <h2>Inicia sessió</h2>
       </div>
