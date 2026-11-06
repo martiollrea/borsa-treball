@@ -21,6 +21,10 @@ if (isset($_SESSION['username'])) {
       <a class="button secondary" href="../../../frontend/pages/forms/login.php">Iniciar Sessió</a>
     </div>
   <?php elseif ($showButtons == false): ?>
+
+    <?php if (($_SESSION['tipus_usuari']) === 'empresa'): ?>
+      <div>Botto prova</div>
+    <?php endif ?>
     <!-- DESPLEGABLE DEL PERFIL -->
     <div class="user-dropdown">
       <button class="avatar-circle-btn" type="button" aria-expanded="false">
@@ -34,6 +38,10 @@ if (isset($_SESSION['username'])) {
         <div class="dropdown-header">
           <span>Hola, <strong><?php echo htmlspecialchars($_SESSION['username'] ?? 'Usuari'); ?></strong></span>
         </div>
+        <hr class="dropdown-divider">
+        <a href="" class="dropdown-item profile-item">
+          Administrar perfil
+        </a>
         <hr class="dropdown-divider">
         <a href="../../../backend/logout.php" class="dropdown-item logout-item">
           🚪 Tancar Sessió

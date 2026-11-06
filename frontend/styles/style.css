@@ -1,27 +1,29 @@
 /* ==========================================================================
    TAULA DE CONTINGUTS:
-   1. VARIABLES I RESET (Variables, Reset bàsic, Body, Contenidors)
-   2. TYPOGRAPHY & BADGES (Tags, Requisits, Status Badges)
-   3. BOTONS (Estils de botó base, variants i mides)
-   4. LAYOUT GENERAL (Header, Contenidors globals, Back-link, Title bar)
-   5. FORMULARIS (Inputs, Groups, Checkbox/Radio, Validacions)
-   6. GRAELLA I TARGETES D'OFERTES (Grid, Card base, Card simplificada)
-   7. VISTA DETALLADA D'OFERTA (Hero, Logo dreta, Detail Grid, Sidebar)
-   8. SECCIÓ HERO I CERCADOR (Inici)
-   9. ESTADÍSTIQUES (Counter Strip)
-   10. FILTRES RÀPIDS (Pills)
-   11. BLOC BIVALENT (Alumnes vs Empreses)
-   12. FAMÍLIES PROFESSIONALS (Categories)
-   13. PEU DE PÀGINA (Footer)
+   1. VARIABLES I RESET
+   2. TIPOGRAFIA, BADGES I TAGS
+   3. BOTONS
+   4. LAYOUT GENERAL
+   5. FORMULARIS
+   6. GRAELLA I TARGETES D'OFERTES
+   7. VISTA DETALLADA D'OFERTA
+   8. SECCIÓ HERO I CERCADOR
+   9. ESTADÍSTIQUES
+   10. FILTRES RÀPIDS
+   11. BLOC BIVALENT
+   12. FAMÍLIES PROFESSIONALS
+   13. PEU DE PÀGINA
    14. NAVEGACIÓ I DESPLEGABLE D'USUARI
-   15. RESPONSIVE / MEDIA QUERIES (Agrupats per breakpoint)
+   15. ESTATS DE FOCUS I ACCESSIBILITAT
+   16. RESPONSIVE
    ========================================================================== */
 
 /* ==========================================================================
    1. VARIABLES I RESET
    ========================================================================== */
+
 :root {
-  /* Paleta Cyan Principal */
+  /* Paleta cyan principal */
   --cyan-primary: #0891b2;
   --cyan-primary-hover: #0e7490;
   --cyan-dark: #155e75;
@@ -30,7 +32,7 @@
   --cyan-secondary-hover: #bae6fd;
   --cyan-border: #06b6d4;
 
-  /* Colors de Text i Fons */
+  /* Colors de text i fons */
   --text-dark: #0f172a;
   --text-muted: #64748b;
   --bg-body: #f8fafc;
@@ -44,46 +46,55 @@
   --border-focus: #0891b2;
   --shadow-focus: rgba(8, 145, 178, 0.2);
 
-  /* Feedback i Validacions */
+  /* Feedback i validacions */
   --error-color: #ef4444;
   --error-bg: #fef2f2;
-  --success-color: #10b981;
 
-  /* Tipografia i Mides */
-  --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  /* Tipografia i mides */
+  --font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
   --radius: 12px;
 
   /* Ombres */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
   font-family: var(--font-family);
-  background-color: var(--bg-body);
   color: var(--text-dark);
+  background-color: var(--bg-body);
 }
 
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
 /* ==========================================================================
-   2. TYPOGRAPHY & BADGES / TAGS
+   2. TIPOGRAFIA, BADGES I TAGS
    ========================================================================== */
+
 .tag {
   display: inline-flex;
   align-items: center;
-  box-sizing: border-box;
   padding: 0.25rem 0.6rem;
   font-size: 0.8rem;
   font-weight: 600;
@@ -114,60 +125,65 @@ body {
 
 .badge-status {
   display: inline-block;
-  background-color: #d1fae5;
-  color: #047857;
+  margin-bottom: 0.75rem;
   padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  color: #047857;
   font-size: 0.8rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background-color: #d1fae5;
+  border-radius: 20px;
 }
 
 .skill-badge {
-  background-color: var(--cyan-secondary);
-  color: #0369a1;
-  font-weight: 600;
   padding: 0.4rem 0.85rem;
-  border-radius: 8px;
+  color: #0369a1;
   font-size: 0.88rem;
+  font-weight: 600;
+  background-color: var(--cyan-secondary);
   border: 1px solid var(--cyan-secondary-hover);
+  border-radius: 8px;
 }
 
 .hero-tag {
-  background-color: #ffffff;
-  border: 1px solid var(--border-light);
   padding: 0.4rem 0.85rem;
-  border-radius: 8px;
+  color: var(--text-dark);
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text-dark);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 /* ==========================================================================
    3. BOTONS
    ========================================================================== */
+
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.6rem 1.3rem;
+  color: var(--text-dark);
+  font-family: inherit;
   font-size: 0.95rem;
   font-weight: 600;
-  font-family: inherit;
-  border-radius: 8px;
-  border: 1px solid var(--border-light);
-  background-color: #ffffff;
-  color: var(--text-dark);
-  cursor: pointer;
   text-decoration: none;
-  transition: all 0.2s ease-in-out;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
 }
 
 .button:hover {
-  background-color: #f8fafc;
+  background-color: var(--bg-body);
 }
 
 .button:active {
@@ -175,9 +191,10 @@ body {
 }
 
 /* Variants */
+
 .button.primary {
-  background-color: var(--cyan-primary);
   color: #ffffff;
+  background-color: var(--cyan-primary);
   border-color: var(--cyan-primary);
 }
 
@@ -187,15 +204,16 @@ body {
 }
 
 .button.secondary {
-  background-color: var(--cyan-secondary);
   color: #0369a1;
+  background-color: var(--cyan-secondary);
 }
 
 .button.secondary:hover {
   background-color: var(--cyan-secondary-hover);
 }
 
-/* Mides i utilitats de botó */
+/* Mides i utilitats */
+
 .button-sm {
   padding: 0.4rem 0.85rem;
   font-size: 0.85rem;
@@ -212,21 +230,22 @@ body {
 }
 
 /* ==========================================================================
-   4. LAYOUT GENERAL (HEADER, CONTENIDORS I TITOLS)
+   4. LAYOUT GENERAL
    ========================================================================== */
+
 .header-index {
-  background-color: var(--bg-header);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 1.25rem 3rem;
+  background-color: var(--bg-header);
   border-bottom: 3px solid var(--cyan-border);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .header-index h1 {
-  font-size: 1.75rem;
   color: var(--cyan-primary);
+  font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
@@ -234,25 +253,25 @@ body {
 .botons-inici {
   display: flex;
   flex-direction: row;
-  gap: 0.75rem;
   align-items: center;
+  gap: 0.75rem;
 }
 
 .contingut-index {
   max-width: 1200px;
   margin: 2.5rem auto;
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .contingut-index h2 {
-  font-size: 1.6rem;
-  color: var(--text-dark);
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
+  color: var(--text-dark);
+  font-size: 1.6rem;
   border-bottom: 2px solid var(--cyan-secondary);
 }
 
@@ -262,38 +281,38 @@ body {
 
 .section-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 1.5rem;
   flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
   gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .section-header h2 {
-  font-size: 1.8rem;
-  color: var(--text-dark);
   margin-bottom: 0.25rem;
+  color: var(--text-dark);
+  font-size: 1.8rem;
 }
 
 .section-subtitle {
-  color: var(--text-muted);
   margin: 0;
+  color: var(--text-muted);
 }
 
 .index-title-bar {
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
+  justify-content: space-between;
   margin-bottom: 1.5rem;
 }
 
 .total-ofertes {
-  background-color: var(--cyan-light);
-  color: var(--cyan-primary);
-  font-weight: 600;
   padding: 0.4rem 0.8rem;
-  border-radius: 20px;
+  color: var(--cyan-primary);
   font-size: 0.85rem;
+  font-weight: 600;
+  background-color: var(--cyan-light);
+  border-radius: 20px;
 }
 
 .container-detail {
@@ -310,28 +329,33 @@ body {
   align-items: center;
   margin-bottom: 1rem;
   color: var(--cyan-primary);
+  font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
-  font-size: 0.95rem;
-  transition: transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .back-link:hover {
-  transform: translateX(-3px);
   color: var(--cyan-primary-hover);
+  transform: translateX(-3px);
 }
 
 /* ==========================================================================
    5. FORMULARIS
    ========================================================================== */
+
 .form-container {
-  background-color: var(--bg-card);
   max-width: 650px;
   margin: 2rem auto;
   padding: 2.5rem;
-  border-radius: 16px;
+  background-color: var(--bg-card);
   border: 2px solid var(--cyan-border);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  border-radius: 16px;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.05),
+    0 8px 10px -6px rgba(0, 0, 0, 0.01);
 }
 
 .form-header {
@@ -340,10 +364,10 @@ body {
 }
 
 .form-header h2 {
-  font-size: 1.75rem;
-  color: var(--text-dark);
-  font-weight: 700;
   margin-bottom: 0.5rem;
+  color: var(--text-dark);
+  font-size: 1.75rem;
+  font-weight: 700;
 }
 
 .form-header p {
@@ -371,27 +395,30 @@ body {
 }
 
 .form-group label {
+  color: var(--text-dark);
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text-dark);
 }
 
 .form-group label .required {
-  color: var(--error-color);
   margin-left: 2px;
+  color: var(--error-color);
 }
 
 .form-control {
   width: 100%;
   padding: 0.75rem 1rem;
+  color: var(--text-dark);
   font-family: inherit;
   font-size: 0.95rem;
-  color: var(--text-dark);
   background-color: var(--bg-input);
   border: 2px solid var(--cyan-border);
   border-radius: 8px;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .form-control::placeholder {
@@ -404,13 +431,13 @@ body {
 }
 
 .form-control:focus {
-  border-color: var(--cyan-primary-hover);
+  border-color: var(--border-focus);
   box-shadow: 0 0 0 4px var(--shadow-focus);
 }
 
 textarea.form-control {
-  resize: vertical;
   min-height: 100px;
+  resize: vertical;
 }
 
 .form-control:disabled {
@@ -420,28 +447,32 @@ textarea.form-control {
   opacity: 0.7;
 }
 
-/* Checkbox & Radio */
+/* Checkbox i radio */
+
 .form-check {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  margin-top: 0.25rem;
   cursor: pointer;
   user-select: none;
-  margin-top: 0.25rem;
 }
 
 .form-check input[type="checkbox"],
 .form-check input[type="radio"] {
-  appearance: none;
+  display: grid;
   width: 1.15rem;
   height: 1.15rem;
   border: 1.5px solid var(--cyan-border);
   border-radius: 4px;
   outline: none;
   cursor: pointer;
-  display: grid;
+  appearance: none;
   place-content: center;
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .form-check input[type="radio"] {
@@ -455,18 +486,18 @@ textarea.form-control {
 }
 
 .form-check input[type="checkbox"]:checked::before {
-  content: "✓";
-  color: white;
+  color: #ffffff;
   font-size: 0.8rem;
-  font-weight: bold;
+  font-weight: 700;
+  content: "✓";
 }
 
 .form-check input[type="radio"]:checked::before {
-  content: "";
   width: 6px;
   height: 6px;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 50%;
+  content: "";
 }
 
 .form-check label {
@@ -475,20 +506,21 @@ textarea.form-control {
 }
 
 /* Validacions */
+
 .help-text {
-  font-size: 0.8rem;
   color: var(--text-muted);
+  font-size: 0.8rem;
 }
 
 .error-text {
-  font-size: 0.8rem;
   color: var(--error-color);
+  font-size: 0.8rem;
   font-weight: 500;
 }
 
 .form-group.has-error .form-control {
-  border-color: var(--error-color);
   background-color: var(--error-bg);
+  border-color: var(--error-color);
 }
 
 .form-group.has-error .form-control:focus {
@@ -509,56 +541,60 @@ textarea.form-control {
 /* ==========================================================================
    6. GRAELLA I TARGETES D'OFERTES
    ========================================================================== */
+
 .grid-ofertes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
-/* Card Genèrica */
+/* Targeta genèrica */
+
 .card {
-  box-sizing: border-box;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0;
   color: var(--text-dark);
   font-size: 0.95rem;
   line-height: 1.5714;
   background-color: var(--bg-card);
-  border-radius: 12px;
   border: 1px solid var(--border-light);
   border-top: 4px solid var(--cyan-primary);
+  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  max-width: 100%;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .card-hoverable:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(8, 145, 178, 0.12);
   border-color: var(--cyan-border);
+  box-shadow: 0 10px 20px rgba(8, 145, 178, 0.12);
+  transform: translateY(-4px);
 }
 
 .card-head {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: flex-start;
+  justify-content: space-between;
   padding: 1.25rem 1.5rem;
   border-bottom: 1px solid var(--border-light);
 }
 
 .card-head-title {
   margin: 0;
+  color: var(--text-dark);
   font-size: 1.4rem;
   font-weight: 700;
-  color: var(--text-dark);
 }
 
 .card-body {
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 1.5rem;
 }
 
 .card-body .description {
@@ -577,25 +613,29 @@ textarea.form-control {
   border-top: 1px dashed var(--border-light);
 }
 
-/* Targeta d'Oferta (Vista Index Simplificada) */
+/* Targeta d'oferta simplificada */
+
 .card-oferta {
-  background-color: #ffffff;
-  border: 1px solid var(--border-light);
-  border-top: 4px solid var(--cyan-primary);
-  border-radius: 12px;
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  padding: 1.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-top: 4px solid var(--cyan-primary);
+  border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .card-oferta:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(8, 145, 178, 0.1);
   border-color: var(--cyan-border);
+  box-shadow: 0 10px 20px rgba(8, 145, 178, 0.1);
+  transform: translateY(-4px);
 }
 
 .card-content-simple {
@@ -605,18 +645,18 @@ textarea.form-control {
 }
 
 .titol-oferta {
+  color: var(--text-dark);
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--text-dark);
   line-height: 1.3;
 }
 
 .empresa-oferta {
   display: block;
+  margin-top: 0.25rem;
+  color: var(--cyan-primary);
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--cyan-primary);
-  margin-top: 0.25rem;
 }
 
 .requisits-generals {
@@ -626,36 +666,37 @@ textarea.form-control {
 }
 
 .detall-oferta {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  line-height: 1.5;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   margin-top: 0.25rem;
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 .card-footer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding-top: 1rem;
+  justify-content: space-between;
   margin-top: 1.25rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--border-light);
 }
 
 .data-oferta {
-  font-size: 0.82rem;
   color: var(--text-muted);
+  font-size: 0.82rem;
   font-weight: 500;
 }
 
-/* Utility Elements */
+/* Elements auxiliars de les targetes */
+
 .card-top-bar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 0.5rem;
 }
 
@@ -663,9 +704,9 @@ textarea.form-control {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  font-size: 0.82rem;
-  color: var(--text-muted);
   margin-bottom: 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.82rem;
   font-weight: 500;
 }
 
@@ -683,28 +724,30 @@ textarea.form-control {
 }
 
 /* ==========================================================================
-   7. VISTA DETALLADA D'OFERTA (HERO, LOGO DRETA, GRID I SIDEBAR)
+   7. VISTA DETALLADA D'OFERTA
    ========================================================================== */
+
 .detail-card {
-  background-color: #ffffff;
-  border-radius: 16px;
-  border: 1px solid var(--border-light);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
   overflow: hidden;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
   border-top: 5px solid var(--cyan-primary);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
 }
 
-/* Hero Capçalera */
+/* Hero de la capçalera */
+
 .detail-hero {
-  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+  padding: 2.5rem 2.5rem 1.5rem;
   background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
   border-bottom: 1px solid var(--border-light);
 }
 
 .detail-hero-header {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
+  justify-content: space-between;
   gap: 1.5rem;
 }
 
@@ -713,29 +756,29 @@ textarea.form-control {
 }
 
 .hero-logo {
+  flex-shrink: 0;
   width: 70px;
   height: 70px;
-  object-fit: contain;
-  border-radius: 10px;
-  background-color: #ffffff;
   padding: 0.35rem;
+  object-fit: contain;
+  background-color: var(--bg-card);
   border: 1px solid var(--border-light);
+  border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  flex-shrink: 0;
 }
 
 .hero-title {
-  font-size: 2rem;
+  margin-bottom: 0.4rem;
   color: var(--text-dark);
+  font-size: 2rem;
   font-weight: 800;
   line-height: 1.25;
-  margin-bottom: 0.4rem;
 }
 
 .empresa-link {
+  color: var(--cyan-primary);
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--cyan-primary);
   text-decoration: none;
 }
 
@@ -750,34 +793,37 @@ textarea.form-control {
   margin-top: 1.25rem;
 }
 
-/* Layout 2 Columnes */
+/* Layout de dues columnes */
+
 .detail-grid {
   display: grid;
-  grid-template-columns: 1fr 340px;
+  grid-template-columns: minmax(0, 1fr) 340px;
   gap: 2.5rem;
   padding: 2.5rem;
 }
 
-/* Columna Principal */
+/* Columna principal */
+
 .detail-main-content {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  min-width: 0;
 }
 
 .detail-section h2 {
-  font-size: 1.25rem;
-  color: var(--text-dark);
-  font-weight: 700;
   margin-bottom: 0.8rem;
-  border-bottom: none;
   padding-bottom: 0;
+  color: var(--text-dark);
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-bottom: none;
 }
 
 .description-text {
+  color: #334155;
   font-size: 1rem;
   line-height: 1.7;
-  color: #334155;
 }
 
 .detail-list {
@@ -797,33 +843,34 @@ textarea.form-control {
 }
 
 .empresa-box {
-  background-color: var(--bg-body);
   padding: 1.25rem 1.5rem;
-  border-radius: 12px;
+  background-color: var(--bg-body);
   border: 1px solid var(--border-light);
+  border-radius: 12px;
 }
 
 .empresa-box h3 {
-  font-size: 1rem;
   margin-bottom: 0.5rem;
   color: var(--text-dark);
+  font-size: 1rem;
 }
 
 .empresa-box p {
-  font-size: 0.9rem;
   color: var(--text-muted);
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 
-/* Sidebar Dreta */
+/* Barra lateral dreta */
+
 .sidebar-box {
-  background-color: #ffffff;
-  border: 1px solid var(--border-light);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   position: sticky;
   top: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .actions-wrapper {
@@ -833,9 +880,9 @@ textarea.form-control {
 }
 
 .sidebar-divider {
+  margin: 1.5rem 0;
   border: 0;
   border-top: 1px solid var(--border-light);
-  margin: 1.5rem 0;
 }
 
 .summary-list {
@@ -851,27 +898,30 @@ textarea.form-control {
 }
 
 .summary-label {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
   color: var(--text-muted);
+  font-size: 0.78rem;
   font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .summary-value {
+  color: var(--text-dark);
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--text-dark);
 }
 
 /* ==========================================================================
    8. SECCIÓ HERO I CERCADOR
    ========================================================================== */
+
 .hero-section {
-  background: linear-gradient(135deg, var(--cyan-dark) 0%, var(--cyan-primary) 100%);
-  color: #ffffff;
   padding: 4rem 1.5rem;
+  color: #ffffff;
   text-align: center;
+  background: linear-gradient(135deg,
+      var(--cyan-dark) 0%,
+      var(--cyan-primary) 100%);
 }
 
 .hero-content {
@@ -880,72 +930,76 @@ textarea.form-control {
 }
 
 .hero-content h1 {
+  margin-bottom: 1rem;
   font-size: 2.3rem;
   font-weight: 800;
-  margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .hero-content p {
+  margin-bottom: 2rem;
   font-size: 1.1rem;
   opacity: 0.9;
-  margin-bottom: 2rem;
 }
 
-/* Search Form */
+/* Formulari de cerca */
+
 .search-box {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  background-color: #ffffff;
+  margin-bottom: 1.5rem;
   padding: 0.5rem;
+  background-color: var(--bg-card);
   border-radius: 50px;
   box-shadow: var(--shadow-lg);
-  margin-bottom: 1.5rem;
 }
 
 .search-input {
   flex: 2;
   min-width: 200px;
-  border: none;
   padding: 0.8rem 1.2rem;
+  font-family: inherit;
   font-size: 0.95rem;
-  outline: none;
+  border: none;
   border-radius: 40px;
+  outline: none;
 }
 
 .search-select {
   flex: 1;
   min-width: 160px;
+  padding: 0.8rem 1rem;
+  color: var(--text-dark);
+  font-family: inherit;
+  font-size: 0.95rem;
+  background-color: transparent;
   border: none;
   border-left: 1px solid var(--border-light);
-  padding: 0.8rem 1rem;
-  font-size: 0.95rem;
   outline: none;
-  background-color: transparent;
-  color: var(--text-dark);
   cursor: pointer;
 }
 
 .btn-search {
-  border-radius: 40px !important;
-  padding: 0.8rem 1.8rem !important;
+  padding: 0.8rem 1.8rem;
+  border-radius: 40px;
 }
 
 .hero-actions {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  flex-wrap: wrap;
 }
 
 /* ==========================================================================
-   9. ESTADÍSTIQUES (COUNTER STRIP)
+   9. ESTADÍSTIQUES
    ========================================================================== */
+
 .stats-strip {
-  background-color: #ffffff;
-  border-bottom: 1px solid var(--border-light);
   padding: 2rem 0;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .stats-grid {
@@ -961,54 +1015,60 @@ textarea.form-control {
 }
 
 .stat-number {
+  color: var(--cyan-primary);
   font-size: 2rem;
   font-weight: 800;
-  color: var(--cyan-primary);
 }
 
 .stat-label {
-  font-size: 0.9rem;
   color: var(--text-muted);
+  font-size: 0.9rem;
   font-weight: 500;
 }
 
 /* ==========================================================================
-   10. FILTRES RÀPIDS (PILLS)
+   10. FILTRES RÀPIDS
    ========================================================================== */
+
 .filter-pills {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 2rem;
-  overflow-x: auto;
   padding-bottom: 0.5rem;
+  overflow-x: auto;
 }
 
 .pill {
-  background-color: #ffffff;
-  border: 1px solid var(--border-light);
-  color: var(--text-muted);
   padding: 0.5rem 1.2rem;
-  border-radius: 30px;
+  color: var(--text-muted);
+  font-family: inherit;
   font-size: 0.88rem;
   font-weight: 500;
-  cursor: pointer;
   white-space: nowrap;
-  transition: all 0.2s ease;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 30px;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .pill:hover,
 .pill.active {
-  background-color: var(--cyan-primary);
   color: #ffffff;
+  background-color: var(--cyan-primary);
   border-color: var(--cyan-primary);
 }
 
 /* ==========================================================================
-   11. BLOC BIVALENT (DUAL SECTION)
+   11. BLOC BIVALENT
    ========================================================================== */
+
 .dual-section {
-  background-color: var(--bg-body);
   padding: 4rem 1.5rem;
+  background-color: var(--bg-body);
 }
 
 .dual-grid {
@@ -1018,37 +1078,38 @@ textarea.form-control {
 }
 
 .dual-card {
-  background: #ffffff;
-  padding: 2.5rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2.5rem;
+  text-align: center;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
 }
 
 .dual-icon {
-  font-size: 3rem;
   margin-bottom: 1rem;
+  font-size: 3rem;
 }
 
 .dual-card h3 {
-  font-size: 1.4rem;
-  color: var(--text-dark);
   margin-bottom: 0.8rem;
+  color: var(--text-dark);
+  font-size: 1.4rem;
 }
 
 .dual-card p {
-  color: var(--text-muted);
   margin-bottom: 1.8rem;
+  color: var(--text-muted);
   line-height: 1.6;
 }
 
 /* ==========================================================================
-   12. FAMÍLIES PROFESSIONALS (CATEGORIES)
+   12. FAMÍLIES PROFESSIONALS
    ========================================================================== */
+
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -1056,46 +1117,50 @@ textarea.form-control {
 }
 
 .category-card {
-  background-color: #ffffff;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  transition: all 0.2s ease;
+  padding: 1.5rem;
+  text-decoration: none;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .category-card:hover {
   border-color: var(--cyan-primary);
-  transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .category-icon {
-  font-size: 2rem;
   margin-bottom: 0.8rem;
+  font-size: 2rem;
 }
 
 .category-card h4 {
-  font-size: 1.05rem;
+  margin: 0 0 0.4rem;
   color: var(--text-dark);
-  margin: 0 0 0.4rem 0;
+  font-size: 1.05rem;
 }
 
 .category-count {
-  font-size: 0.85rem;
   color: var(--text-muted);
+  font-size: 0.85rem;
 }
 
 /* ==========================================================================
-   13. PEU DE PÀGINA (FOOTER)
+   13. PEU DE PÀGINA
    ========================================================================== */
+
 .site-footer {
-  background-color: #0f172a;
-  color: #94a3b8;
   padding-top: 3.5rem;
+  color: #94a3b8;
+  background-color: #0f172a;
 }
 
 .footer-grid {
@@ -1113,20 +1178,20 @@ textarea.form-control {
 }
 
 .footer-brand h3 {
-  color: #ffffff;
   margin: 0;
+  color: #ffffff;
 }
 
 .footer-col h4 {
+  margin-bottom: 1.2rem;
   color: #ffffff;
   font-size: 1.1rem;
-  margin-bottom: 1.2rem;
 }
 
 .footer-col ul {
-  list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .footer-col li {
@@ -1144,38 +1209,42 @@ textarea.form-control {
 }
 
 .footer-bottom {
-  border-top: 1px solid #1e293b;
   padding: 1.5rem 0;
-  text-align: center;
   font-size: 0.85rem;
+  text-align: center;
+  border-top: 1px solid #1e293b;
 }
 
 /* ==========================================================================
    14. NAVEGACIÓ I DESPLEGABLE D'USUARI
    ========================================================================== */
+
 .selector-tipus-container {
   display: flex;
   justify-content: center;
-  margin: 2rem 0 1.5rem 0;
+  margin: 2rem 0 1.5rem;
 }
 
 .selector-tipus-usuari {
   display: inline-flex;
-  background-color: #e2e8f0;
   padding: 4px;
-  border-radius: 12px;
+  background-color: #e2e8f0;
   border: 1px solid var(--border-light);
+  border-radius: 12px;
 }
 
 .selector-tipus-usuari .btn-option {
   padding: 0.75rem 2rem;
+  color: var(--text-muted);
   font-size: 1rem;
   font-weight: 600;
-  color: #64748b;
+  text-align: center;
   text-decoration: none;
   border-radius: 99px;
-  transition: all 0.25s ease-in-out;
-  text-align: center;
+  transition:
+    color 0.25s ease-in-out,
+    background-color 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out;
 }
 
 .selector-tipus-usuari .btn-option:hover:not(.active) {
@@ -1183,8 +1252,8 @@ textarea.form-control {
 }
 
 .selector-tipus-usuari .btn-option.active {
-  background-color: var(--cyan-primary);
   color: #ffffff;
+  background-color: var(--cyan-primary);
   box-shadow: 0 4px 10px rgba(8, 145, 178, 0.25);
   cursor: default;
 }
@@ -1195,62 +1264,69 @@ textarea.form-control {
 }
 
 .avatar-circle-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: var(--cyan-primary);
-  color: #ffffff;
-  border: 2px solid var(--cyan-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
+  width: 44px;
+  height: 44px;
+  color: #ffffff;
+  font-family: inherit;
   font-size: 1.15rem;
-  cursor: pointer;
+  font-weight: 700;
+  background-color: var(--cyan-primary);
+  border: 2px solid var(--cyan-secondary);
+  border-radius: 50%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .avatar-circle-btn:hover,
 .user-dropdown:focus-within .avatar-circle-btn {
-  transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+  transform: scale(1.05);
 }
 
 .dropdown-menu {
   position: absolute;
-  right: 0;
   top: calc(100% + 8px);
-  background-color: #ffffff;
-  min-width: 180px;
-  border-radius: 10px;
-  border: 1px solid var(--border-light);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  padding: 0.5rem 0;
+  right: 0;
   z-index: 1000;
-  opacity: 0;
+  min-width: 180px;
+  padding: 0.5rem 0;
   visibility: hidden;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  opacity: 0;
   transform: translateY(-8px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
 }
 
 .user-dropdown:hover .dropdown-menu,
 .user-dropdown:focus-within .dropdown-menu {
-  opacity: 1;
   visibility: visible;
+  opacity: 1;
   transform: translateY(0);
 }
 
 .dropdown-header {
   padding: 0.6rem 1rem;
-  font-size: 0.88rem;
   color: var(--text-dark);
+  font-size: 0.88rem;
 }
 
 .dropdown-divider {
+  margin: 0.3rem 0;
   border: none;
   border-top: 1px solid #f1f5f9;
-  margin: 0.3rem 0;
 }
 
 .dropdown-item {
@@ -1258,33 +1334,69 @@ textarea.form-control {
   align-items: center;
   gap: 8px;
   padding: 0.6rem 1rem;
-  text-decoration: none;
+  color: var(--text-dark);
   font-size: 0.9rem;
   font-weight: 500;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  color: var(--cyan-primary-hover);
+  background-color: var(--cyan-secondary);
 }
 
 .dropdown-item.logout-item {
-  color: #ef4444;
+  color: var(--error-color);
 }
 
 .dropdown-item.logout-item:hover {
-  background-color: #fef2f2;
   color: #dc2626;
+  background-color: var(--error-bg);
 }
 
 /* ==========================================================================
-   15. RESPONSIVE / MEDIA QUERIES
+   15. ESTATS DE FOCUS I ACCESSIBILITAT
+   ========================================================================== */
+
+.button:focus-visible,
+.back-link:focus-visible,
+.empresa-link:focus-visible,
+.pill:focus-visible,
+.category-card:focus-visible,
+.selector-tipus-usuari .btn-option:focus-visible,
+.avatar-circle-btn:focus-visible,
+.dropdown-item:focus-visible {
+  outline: 3px solid var(--cyan-border);
+  outline-offset: 3px;
+}
+
+.form-check input:focus-visible {
+  box-shadow: 0 0 0 4px var(--shadow-focus);
+}
+
+.search-input:focus-visible,
+.search-select:focus-visible {
+  outline: 3px solid var(--cyan-border);
+  outline-offset: 1px;
+}
+
+/* ==========================================================================
+   16. RESPONSIVE
    ========================================================================== */
 
 /* Pantalles mitjanes */
+
 @media (max-width: 992px) {
   .grid-ofertes {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Tablets i pantalles intermèdies */
+/* Tauletes i pantalles intermèdies */
+
 @media (max-width: 850px) {
   .detail-grid {
     grid-template-columns: 1fr;
@@ -1306,20 +1418,37 @@ textarea.form-control {
 }
 
 /* Mòbils */
+
 @media (max-width: 640px) {
   .grid-ofertes {
     grid-template-columns: 1fr;
   }
 
   .header-index {
-    padding: 1rem 1.5rem;
     flex-direction: column;
     gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .botons-inici {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .contingut-index {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .index-title-bar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
   .form-container {
-    padding: 1.5rem;
     margin: 1rem;
+    padding: 1.5rem;
   }
 
   .form-actions {
@@ -1327,8 +1456,8 @@ textarea.form-control {
   }
 
   .form-actions .button {
-    width: auto;
-    min-width: 140px;
+    width: 100%;
+    min-width: 0;
     text-align: center;
   }
 
@@ -1342,17 +1471,51 @@ textarea.form-control {
     height: 60px;
   }
 
+  .hero-content h1 {
+    font-size: 1.85rem;
+  }
+
   .search-box {
-    border-radius: 16px;
     flex-direction: column;
+    border-radius: 16px;
+  }
+
+  .search-input,
+  .search-select {
+    width: 100%;
+    min-width: 0;
   }
 
   .search-select {
-    border-left: none;
     border-top: 1px solid var(--border-light);
+    border-left: none;
   }
 
   .btn-search {
     width: 100%;
+  }
+
+  .selector-tipus-usuari {
+    width: 100%;
+  }
+
+  .selector-tipus-usuari .btn-option {
+    flex: 1;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+/* Preferència de moviment reduït */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

@@ -185,7 +185,7 @@ $path = "./";
           <a href="pages/forms/register.php?tipus=empresa" class="button secondary">Registrar la meva empresa</a>
         </div>
 
-      <?php elseif (($_SESSION['tipus_usuari'] ?? '') === 'alumne'): ?>
+      <?php elseif (($_SESSION['tipus_usuari']) === 'alumne'): ?>
 
         <!-- ESTAT 2: SESSIÓ D'ALUMNE INICIADA -->
         <div class="dual-card student-card">
@@ -202,7 +202,7 @@ $path = "./";
           <a href="pages/candidatures.php" class="button secondary">Veure inscripcions</a>
         </div>
 
-      <?php else: ?>
+      <?php elseif (($_SESSION['tipus_usuari']) === 'empresa'): ?>
 
         <!-- ESTAT 3: SESSIÓ D'EMPRESA INICIADA -->
         <div class="dual-card company-card">
