@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $poblacio = trim($_POST["poblacio"] ?? '');
   $codi_postal = trim($_POST["codi_postal"] ?? '');
 
-  $registerUrl = "../frontend/pages/forms/register.php?tipus=" . urlencode($tipus);
+  $registerUrl = "../../frontend/pages/forms/register.php?tipus=" . urlencode($tipus);
 
   // Validacions comuns
   if (empty($username)) {
@@ -56,6 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $errors['repetir_password'] = "Les contrasenyes no coincideixen.";
   }
 
+  $errorContrasenya = isset($errors['password']) || isset($errors['repetir_password']);
+
   // Validacions alumne
   if ($tipus === 'alumne') {
     if (empty($cognoms)) {
@@ -76,10 +78,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
   }
 
-  // ERRORS: Guardem a la sessió i tornem al formulari
-  if (!empty($errors)) {
-    $_SESSION['errors'] = $errors;
-    $_SESSION['old_input'] = [
+  // Lògica per omplir old_input (amb contrasenyes només si la seva validació és correcta)
+  $guardarOldInput = function () use ($username, $cognoms, $email, $telefon, $edat, $poblacio, $codi_postal, $tipus, $pass, $pass_repeat, $errorContrasenya) {
+    $old = [
       'username' => $username,
       'cognoms' => $cognoms,
       'email' => $email,
@@ -90,26 +91,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       'tipus_usuari' => $tipus
     ];
 
+    if (!$errorContrasenya) {
+      $old['password'] = $pass;
+      $old['repetir_password'] = $pass_repeat;
+    }
+
+    return $old;
+  };
+
+  // ERRORS DE VALIDACIÓ: Guardem a la sessió i tornem al formulari
+  if (!empty($errors)) {
+    $_SESSION['errors'] = $errors;
+    $_SESSION['old_input'] = $guardarOldInput();
+
     header("Location: " . $registerUrl);
     exit();
   }
 
   // TOT CORRECTE: Iniciem la sessió
-  unset($_SESSION['errors'], $_SESSION['old_input']);
-
-  $hashedPassowrd = password_hash($pass, PASSWORD_DEFAULT);
+  $hashedPassword = password_hash($pass, PASSWORD_DEFAULT);
 
   require_once '../api/inserts/insertUsuari.php';
 
   if ($insercioCorrecta) {
+    unset($_SESSION['errors'], $_SESSION['old_input']);
     $_SESSION['username'] = $username;
     $_SESSION['tipus_usuari'] = $tipus;
 
-    header("Location: ../frontend/index.php?status=success");
+    header("Location: ../../frontend/index.php?status=success");
     exit();
   } else {
-    $_SESSION['errors'] = ['database' => "No s'ha pogut guardar l'usuari a la base de dades."];
-    $_SESSION['old_input'] = $_POST;
+    if ($campDuplicat === 'username') {
+      $_SESSION['errors'] = ['username' => "Aquest nom d'usuari no està disponible"];
+    } elseif ($campDuplicat === 'email') {
+      $_SESSION['errors'] = ['email' => "Aquest email ja ha estat enregistrat"];
+    } else {
+      $_SESSION['errors'] = ['database' => $missatgeError ?? "No s'ha pogut guardar l'usuari a la base de dades."];
+    }
+
+    // Com que les contrasenyes eren vàlides, es mantindran a la sessió
+    $_SESSION['old_input'] = $guardarOldInput();
 
     header("Location: " . $registerUrl);
     exit();

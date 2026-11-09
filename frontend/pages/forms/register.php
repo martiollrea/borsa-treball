@@ -25,6 +25,15 @@ $tipus = ($tipus === 'empresa') ? 'empresa' : 'alumne';
       font-size: 0.85rem;
       display: block;
     }
+
+    .alert-danger {
+      color: #721c24;
+      background-color: #f8d7da;
+      border: 1px solid #f5c6cb;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1rem;
+      border-radius: 0.25rem;
+    }
   </style>
 </head>
 
@@ -48,6 +57,12 @@ $tipus = ($tipus === 'empresa') ? 'empresa' : 'alumne';
       <div class="form-header">
         <h2>Registra't (<?= ucfirst($tipus) ?>)</h2>
       </div>
+
+      <?php if (isset($errors['database'])): ?>
+        <div class="alert-danger">
+          <?= htmlspecialchars($errors['database']) ?>
+        </div>
+      <?php endif; ?>
 
       <?php if ($tipus === 'alumne'): ?>
 
@@ -107,7 +122,7 @@ $tipus = ($tipus === 'empresa') ? 'empresa' : 'alumne';
 
         <div class="form-group">
           <label>Contrasenya</label>
-          <input type="password" name="password" class="form-control">
+          <input type="password" name="password" class="form-control" value="<?= htmlspecialchars($old['password'] ?? '') ?>">
           <?php if (isset($errors['password'])): ?>
             <span class="error-msg"><?= $errors['password'] ?></span>
           <?php endif; ?>
@@ -115,7 +130,7 @@ $tipus = ($tipus === 'empresa') ? 'empresa' : 'alumne';
 
         <div class="form-group">
           <label>Confirmar contrasenya</label>
-          <input type="password" name="repetir_password" class="form-control">
+          <input type="password" name="repetir_password" class="form-control" value="<?= htmlspecialchars($old['repetir_password'] ?? '') ?>">
           <?php if (isset($errors['repetir_password'])): ?>
             <span class="error-msg"><?= $errors['repetir_password'] ?></span>
           <?php endif; ?>
@@ -172,7 +187,7 @@ $tipus = ($tipus === 'empresa') ? 'empresa' : 'alumne';
 
         <div class="form-group">
           <label>Contrasenya</label>
-          <input type="password" name="password" class="form-control">
+          <input type="password" name="password" class="form-control" value="<?= htmlspecialchars($old['password'] ?? '') ?>">
           <?php if (isset($errors['password'])): ?>
             <span class="error-msg"><?= $errors['password'] ?></span>
           <?php endif; ?>
@@ -180,7 +195,7 @@ $tipus = ($tipus === 'empresa') ? 'empresa' : 'alumne';
 
         <div class="form-group">
           <label>Repetir contrasenya</label>
-          <input type="password" name="repetir_password" class="form-control">
+          <input type="password" name="repetir_password" class="form-control" value="<?= htmlspecialchars($old['repetir_password'] ?? '') ?>">
           <?php if (isset($errors['repetir_password'])): ?>
             <span class="error-msg"><?= $errors['repetir_password'] ?></span>
           <?php endif; ?>
