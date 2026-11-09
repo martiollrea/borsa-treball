@@ -1,7 +1,7 @@
 <?php
-require_once '../borsa-treball/backend/api/cors.php';
-require_once '../borsa-treball/configs/DataBaseConnection.php';
-require_once '../borsa-treball/backend/api/authHelper.php';
+require_once '../api/cors.php';
+require_once '../../configs/DataBaseConnection.php';
+require_once '../api/authHelper.php';
 
 
 

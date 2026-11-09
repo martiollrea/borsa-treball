@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   $hashedPassowrd = password_hash($pass, PASSWORD_DEFAULT);
 
-  require_once '../borsa-treball/backend/api/inserts/insertUsuari.php';
+  require_once '../api/inserts/insertUsuari.php';
 
   if ($insercioCorrecta) {
     $_SESSION['username'] = $username;
