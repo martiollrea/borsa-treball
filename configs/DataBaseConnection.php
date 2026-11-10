@@ -1,5 +1,5 @@
 <?php
-//@ TODO: xifrar aquesta info en un futur
+//@TODO: xifrar aquesta info en un futur
 $servername = "localhost";
 $db_username = "root";
 $db_password = "";

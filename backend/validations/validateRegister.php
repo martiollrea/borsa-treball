@@ -7,8 +7,13 @@ if (session_status() === PHP_SESSION_NONE) {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-  $tipus = $_POST["tipus_usuari"] ?? 'alumne';
+  $tipus = $_POST["tipus_usuari"] ?? '';
   $errors = [];
+
+  if (!in_array($tipus, ['alumne', 'empresa'], true)) {
+    $tipus = 'alumne';
+    $errors['tipus_usuari'] = "El tipus d'usuari no es vàlid";
+  }
 
   // Recollir dades
   $username = trim($_POST["username"] ?? '');

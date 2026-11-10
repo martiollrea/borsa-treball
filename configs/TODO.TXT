@@ -3,4 +3,5 @@
 
 VALIDACIO CORREUS REALS (enviar un correu al correu que s'intenta registra per a que confirmi el registre)
 VALIDAR EMPRESES (fer un empresaValidat, mentre no estigui validat no deixar fer "res")
-
+AFEGIR INSERTAR ALUMNE O EMPRESA (quan s'inserta un usuari, mirar quin tipus es)
+ACABAR VALIDACIO PUBLICAR OFERTA (validacio que la data limit sigui com a minim a partir del dia que es fa)

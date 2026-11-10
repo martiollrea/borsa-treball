@@ -40,10 +40,15 @@
         <textarea id="description" name="description" class="form-control" required></textarea>
       </div>
 
-      <!-- <div class="form-group">
-        <label for="date">Data vàlida: <span class="required">*</span></label>
-        <input type="date" id="date" name="date" class="form-control" required />
-      </div> -->
+      <div class="form-group">
+        <label for="date">Data limit: <span class="required">*</span></label>
+        <input type="date" id="limitDate" name="limitDate" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label for="date">Ubicació: <span class="required">*</span></label>
+        <input type="date" id="location" name="location" class="form-control" required />
+      </div>
 
       <div class="form-actions">
         <a href="../../index.php"><button type="button" class="button secondary">Cancel·lar</button></a>

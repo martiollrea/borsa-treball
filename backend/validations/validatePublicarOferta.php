@@ -19,9 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $title = $_POST["title"];
   $description = $_POST["description"];
   $sector = $_POST["sector"];
-  $date = $_POST["date"];
+  $limitDate = $_POST["limitDate"];
+  $location = $_POST["location"];
 
-  if (empty($title) || empty($description) || empty($sector)) {
+  if (empty($title) || empty($description) || empty($sector) || empty($limitDate) || empty($location)) {
     header("Location: publicar-oferta.php?error=Empleneu tots els camps");
     exit();
   } else {
