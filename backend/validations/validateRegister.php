@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $pass = $_POST["password"] ?? '';
   $pass_repeat = $_POST["repetir_password"] ?? '';
   $telefon = trim($_POST["telefon"] ?? '');
-  $edat = trim($_POST["edat"] ?? '');
+  $dataNaixement = ($_POST['data_naixement']) ?? '';
   $poblacio = trim($_POST["poblacio"] ?? '');
   $codi_postal = trim($_POST["codi_postal"] ?? '');
 
@@ -69,10 +69,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $errors['cognoms'] = "Els cognoms són obligatoris.";
     }
 
-    if (empty($edat)) {
-      $errors['edat'] = "L'edat és obligatòria.";
-    } elseif (!is_numeric($edat) || $edat <= 0) {
-      $errors['edat'] = "L'edat ha de ser un número vàlid.";
+    //validar format
+    if (empty($dataNaixement)) {
+      $errors['data_naixement'] = "La data de naixement és obligatòria.";
+    } elseif (new DateTime($dataNaixement) >= new DateTime('today')) {
+      $errors['data_naixement'] = "Ha de ser una data valida";
     }
   }
 
@@ -84,13 +85,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   }
 
   // Lògica per omplir old_input (amb contrasenyes només si la seva validació és correcta)
-  $guardarOldInput = function () use ($username, $cognoms, $email, $telefon, $edat, $poblacio, $codi_postal, $tipus, $pass, $pass_repeat, $errorContrasenya) {
+  $guardarOldInput = function () use ($username, $cognoms, $email, $telefon, $dataNaixement, $poblacio, $codi_postal, $tipus, $pass, $pass_repeat, $errorContrasenya) {
     $old = [
       'username' => $username,
       'cognoms' => $cognoms,
       'email' => $email,
       'telefon' => $telefon,
-      'edat' => $edat,
+      'data_naixement' => $dataNaixement,
       'poblacio' => $poblacio,
       'codi_postal' => $codi_postal,
       'tipus_usuari' => $tipus

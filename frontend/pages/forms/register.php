@@ -88,10 +88,10 @@ $tipus = ($tipus === 'empresa') ? 'empresa' : 'alumne';
 
         <div class="form-row">
           <div class="form-group">
-            <label>Edat</label>
-            <input type="text" name="edat" class='form-control' value="<?= htmlspecialchars($old['edat'] ?? '') ?>">
-            <?php if (isset($errors['edat'])): ?>
-              <span class="error-msg"><?= $errors['edat'] ?></span>
+            <label>Data de naixement</label>
+            <input type="date" name="data_naixement" class='form-control' value="<?= htmlspecialchars($old['data_naixement'] ?? '') ?>">
+            <?php if (isset($errors['data_naixement'])): ?>
+              <span class="error-msg"><?= $errors['data_naixement'] ?></span>
             <?php endif; ?>
           </div>
 
