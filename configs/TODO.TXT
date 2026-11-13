@@ -5,3 +5,4 @@ VALIDACIO CORREUS REALS (enviar un correu al correu que s'intenta registra per a
 VALIDAR EMPRESES (fer un empresaValidat, mentre no estigui validat no deixar fer "res")
 AFEGIR INSERTAR ALUMNE O EMPRESA (quan s'inserta un usuari, mirar quin tipus es)
 ACABAR VALIDACIO PUBLICAR OFERTA (validacio que la data limit sigui com a minim a partir del dia que es fa)
+AL WEB SERVICE DE LOGIN, S'HA DE GENERAR UN TOKEN I ENVIAR, DESPRES, A CADA PETICIO, S'HA D'ENVIAR AL WEB SERVICE,
